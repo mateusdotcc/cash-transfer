@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Dashboard from "./Layout/Dashboard.layout";
+import Dashboard from './Layout/Dashboard.layout';
 
 const DashboardScreen: React.FC = () => {
   return <Dashboard />;
