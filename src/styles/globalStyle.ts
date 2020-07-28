@@ -11,7 +11,7 @@ export default createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%; /* 16px = 1.6rem || 12px = 1.2rem */
+    font-size: 62.5%;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -19,7 +19,7 @@ export default createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    /* font-family: 'Suisse-Regular', 'Helvetica', 'Arial', sans-serif; */
+    font-family: 'Inter-Regular', 'Helvetica', 'Arial', sans-serif;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
   }
