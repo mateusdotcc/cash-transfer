@@ -12,7 +12,11 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "styled-normalize": "^8.0.7",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -35,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.1"
   }
 }
