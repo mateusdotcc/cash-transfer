@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 export const Current = styled.button<{ isActive: boolean }>`
+  font-family: ${props => props.theme.typography.primarySemibold};
   background-color: ${props => props.theme.colors.quaternary};
 
   padding: 0 2.2rem;
@@ -28,7 +29,7 @@ export const Current = styled.button<{ isActive: boolean }>`
     props.isActive &&
     css`
       &:hover {
-        background-color: ${props => props.theme.colors.quaternary};
+        background-color: ${props.theme.colors.quaternary};
       }
     `}
 `;
@@ -43,6 +44,10 @@ export const Search = styled.div`
     padding: 1.6rem 0;
     border: 0;
     background-color: transparent;
+
+    &::placeholder {
+      font-family: ${props => props.theme.typography.primaryRegular};
+    }
   }
 `;
 

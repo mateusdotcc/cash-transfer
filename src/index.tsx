@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import './languages/i18n';
 import './styles/typography.css';
 

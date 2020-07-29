@@ -66,9 +66,9 @@ const SelectField: React.FC<Props> = ({
         ) : (
           <Selected>
             {selectPlaceholder}
-            <Flag source={countries[11]?.flag} />{' '}
+            <Flag source={countries[11]?.flag} />
             <span>{countries[11]?.label}</span>
-            <FiChevronDown />
+            <FiChevronDown size={18} />
           </Selected>
         )}
       </Current>

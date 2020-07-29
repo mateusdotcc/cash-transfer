@@ -15,6 +15,7 @@ export default {
     senary: '#E4E7EB',
     onSenary: '#FFF6F9',
     seventh: '#FF8CBA',
+    onSeventh: '#DA127D',
     background: '#ffffff',
   },
 

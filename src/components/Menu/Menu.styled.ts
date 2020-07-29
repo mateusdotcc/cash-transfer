@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
-import Button from '../Button/Button';
+import ButtonMenu from '../ButtonMenu/ButtonMenu';
 
 type Button = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -33,9 +33,10 @@ export const ListSecondary = styled.ul`
   }
 `;
 
-export const ButtonItem = styled(Button).attrs<{ isActive?: boolean }, Button>(
-  {},
-)<{
+export const ButtonItem = styled(ButtonMenu).attrs<
+  { isActive?: boolean },
+  Button
+>({})<{
   isActive?: boolean;
 }>`
   color: ${props => props.theme.colors.tertiary};

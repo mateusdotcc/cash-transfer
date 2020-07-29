@@ -16,6 +16,82 @@ export const Header = styled.header`
     margin: 0;
     font-size: 2.4rem;
   }
+
+  .ant-picker {
+    width: 20rem;
+  }
+
+  .ant-picker-input {
+    input::placeholder {
+      color: ${props => props.theme.colors.secondary};
+
+      font-size: 1.8rem;
+    }
+  }
+`;
+
+export const Checkmark = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  min-width: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 0.2rem solid ${props => props.theme.colors.senary};
+
+  transition: border-color 0.25s;
+
+  svg {
+    color: ${props => props.theme.colors.background};
+
+    position: relative;
+    z-index: 1;
+    top: 1px;
+    opacity: 0;
+
+    transition: opacity 0.25s 0.18s;
+  }
+
+  &:after {
+    background-color: ${props => props.theme.colors.onSeventh};
+
+    content: '';
+
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: inherit;
+    transform: scale(0);
+
+    z-index: 0;
+
+    transition: transform 0.25s;
+  }
+`;
+
+export const ContainerItem = styled.div`
+  border: 0.2rem solid ${props => props.theme.colors.senary};
+
+  padding: 2.3rem 2.4rem 2.2rem 2.1rem;
+  height: 8.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+
+  transition: border-color 0.25s, background-color 0.25s;
+
+  &:hover {
+    border-color: ${props => props.theme.colors.seventh};
+
+    ${Checkmark} {
+      border-color: ${props => props.theme.colors.seventh};
+    }
+  }
 `;
 
 export const List = styled.ul`
@@ -30,24 +106,36 @@ export const List = styled.ul`
     }
   }
 
-  label {
-    border: 0.2rem solid ${props => props.theme.colors.senary};
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
 
+    &:checked ~ ${ContainerItem} {
+      background-color: ${props => props.theme.colors.onSenary};
+      border-color: ${props => props.theme.colors.seventh};
+
+      pointer-events: none;
+      cursor: auto;
+
+      ${Checkmark} {
+        &:after {
+          transform: scale(1);
+        }
+
+        svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  label {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    padding: 2.3rem 2.4rem 2.2rem 2.1rem;
-    height: 8.8rem;
-    border-radius: 0.4rem;
-
-    transition: border-color 0.25s;
-
-    cursor: pointer;
-
-    &:hover {
-      border-color: ${props => props.theme.colors.seventh};
-    }
   }
 
   div {

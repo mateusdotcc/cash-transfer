@@ -4,8 +4,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 6.1rem;
-
   h2 {
     color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primaryMedium};

@@ -4,5 +4,10 @@
   },
   "sendMoney": "Send Money",
   "available": "available",
-  "chooseAPlan": "Choose a plan:"
+  "chooseAPlan": "Choose a plan:",
+  "paymentDetails": "Payment Details",
+  "express": "Express",
+  "standard": "Standard",
+  "onlyOnWorking": "Only on working days from",
+  "to": "to"
 }

@@ -3,9 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import { Aside } from 'components';
 
-import { MoneyAvailable, Conversions, ChoosePlan } from './components';
+import {
+  MoneyAvailable,
+  Conversions,
+  ChoosePlan,
+  PaymentDetails,
+  Nav,
+} from './components';
 
-import { Container, Center } from './Dashboard.styled';
+import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 
 interface Country {
   id: string;
@@ -26,18 +32,27 @@ const DashboardLayout: React.FC<Props> = ({ onClickCountry }) => {
       <Aside />
 
       <Center>
-        <MoneyAvailable>
-          <h2>{t('dashboard:sendMoney')}</h2>
+        <Header>
+          <MoneyAvailable>
+            <h2>{t('dashboard:sendMoney')}</h2>
+            <div>
+              <span>22,124</span>
+              <p>{t('dashboard:available')}</p>
+            </div>
+          </MoneyAvailable>
 
-          <div>
-            <span>22,124</span>
-            <p>{t('dashboard:available')}</p>
-          </div>
-        </MoneyAvailable>
+          <Nav />
+        </Header>
 
-        <Conversions onClickCountry={onClickCountry} />
+        <Content>
+          <Main>
+            <Conversions onClickCountry={onClickCountry} />
 
-        <ChoosePlan />
+            <ChoosePlan />
+          </Main>
+
+          <PaymentDetails />
+        </Content>
       </Center>
     </Container>
   );

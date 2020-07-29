@@ -17,6 +17,7 @@ declare module 'styled-components' {
       senary: string;
       onSenary: string;
       seventh: string;
+      onSeventh: string;
       background: string;
     };
     typography: {
