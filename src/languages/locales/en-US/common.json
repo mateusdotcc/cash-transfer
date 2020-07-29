@@ -1,3 +1,12 @@
 {
-  "button": {}
+  "button": {},
+  "youSend": "You send",
+  "recipientGets": "Recipient gets",
+  "selects": {
+    "country": {
+      "placeholder": "Search a country",
+      "from": "From:",
+      "to": "To:"
+    }
+  }
 }

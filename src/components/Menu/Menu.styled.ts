@@ -1,17 +1,19 @@
-import styled from 'styled-components';
+import { ButtonHTMLAttributes } from 'react';
+import styled, { css } from 'styled-components';
 
 import Button from '../Button/Button';
+
+type Button = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  max-width: 322px;
   width: 100%;
 
   li {
-    width: 100%;
+    width: inherit;
   }
 `;
 
@@ -31,9 +33,12 @@ export const ListSecondary = styled.ul`
   }
 `;
 
-export const Link = styled(Button)`
+export const ButtonItem = styled(Button).attrs<{ isActive?: boolean }, Button>(
+  {},
+)<{
+  isActive?: boolean;
+}>`
   color: ${props => props.theme.colors.tertiary};
-  font-family: 'Inter-Semibold';
 
   position: relative;
   padding: 2.2rem 0 2.2rem 6.3rem;
@@ -44,7 +49,7 @@ export const Link = styled(Button)`
   transition: color 0.25s;
 
   &:after {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: ${props => props.theme.colors.onPrimary};
 
     content: '';
 
@@ -52,11 +57,31 @@ export const Link = styled(Button)`
     top: 0;
     left: 0;
 
-    width: 0.5rem;
+    width: 0;
     height: 100%;
+
+    transition: width 0.25s;
   }
 
   &:hover {
     color: ${props => props.theme.colors.onPrimary};
+
+    &:after {
+      width: 0.5rem;
+    }
   }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  ${props =>
+    props.isActive &&
+    css`
+      color: ${props.theme.colors.onPrimary};
+
+      &:after {
+        width: 0.5rem;
+      }
+    `}
 `;

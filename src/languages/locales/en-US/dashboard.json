@@ -1,5 +1,8 @@
 {
   "header": {
     "title": "Dashboard"
-  }
+  },
+  "sendMoney": "Send Money",
+  "available": "available",
+  "chooseAPlan": "Choose a plan:"
 }

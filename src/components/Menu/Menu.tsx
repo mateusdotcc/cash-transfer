@@ -13,7 +13,12 @@ import {
 
 import User from './components/User/User';
 
-import { Container, Link, ListPrimary, ListSecondary } from './Menu.styled';
+import {
+  Container,
+  ButtonItem,
+  ListPrimary,
+  ListSecondary,
+} from './Menu.styled';
 
 const Menu: React.FC = () => {
   const { t } = useTranslation(['aside']);
@@ -24,47 +29,52 @@ const Menu: React.FC = () => {
 
       <ListPrimary>
         <li>
-          <Link icon={FiGrid} onClick={() => alert(t('services'))}>
+          <ButtonItem icon={FiGrid} onClick={() => alert(t('services'))}>
             {t('services')}
-          </Link>
+          </ButtonItem>
         </li>
 
         <li>
-          <Link icon={FiRepeat} onClick={() => alert(t('transactions'))}>
+          <ButtonItem icon={FiRepeat} onClick={() => alert(t('transactions'))}>
             {t('transactions')}
-          </Link>
+          </ButtonItem>
         </li>
 
         <li>
-          <Link icon={FiShuffle} onClick={() => alert(t('sendMoney'))}>
+          <ButtonItem
+            isActive
+            icon={FiShuffle}
+            onClick={() => alert(t('sendMoney'))}
+            disabled
+          >
             {t('sendMoney')}
-          </Link>
+          </ButtonItem>
         </li>
 
         <li>
-          <Link icon={FiCreditCard} onClick={() => alert(t('cards'))}>
+          <ButtonItem icon={FiCreditCard} onClick={() => alert(t('cards'))}>
             {t('cards')}
-          </Link>
+          </ButtonItem>
         </li>
 
         <li>
-          <Link icon={FiDatabase} onClick={() => alert(t('history'))}>
+          <ButtonItem icon={FiDatabase} onClick={() => alert(t('history'))}>
             {t('history')}
-          </Link>
+          </ButtonItem>
         </li>
       </ListPrimary>
 
       <ListSecondary>
         <li>
-          <Link icon={FiSettings} onClick={() => alert(t('settings'))}>
+          <ButtonItem icon={FiSettings} onClick={() => alert(t('settings'))}>
             {t('settings')}
-          </Link>
+          </ButtonItem>
         </li>
 
         <li>
-          <Link icon={FiLogOut} onClick={() => alert(t('logOut'))}>
+          <ButtonItem icon={FiLogOut} onClick={() => alert(t('logOut'))}>
             {t('logOut')}
-          </Link>
+          </ButtonItem>
         </li>
       </ListSecondary>
     </Container>
