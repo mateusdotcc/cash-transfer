@@ -1,0 +1,9 @@
+{
+  "services": "Services",
+  "transactions": "Transactions",
+  "sendMoney": "Send Money",
+  "cards": "Cards",
+  "history": "History",
+  "settings": "Settings",
+  "logOut": "Log Out"
+}

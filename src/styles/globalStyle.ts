@@ -18,8 +18,9 @@ export default createGlobalStyle`
   }
 
   body {
-    font-size: 1.6rem;
     font-family: 'Inter-Regular', 'Helvetica', 'Arial', sans-serif;
+
+    font-size: 1.6rem;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
   }

@@ -1,19 +1,19 @@
 @font-face {
-  font-family: "Inter-Regular";
-  src: url(../assets/fonts/Inter-Regular-slnt=0.ttf) format("truetype");
+  font-family: 'Inter-Regular';
+  src: url(../assets/fonts/Inter-Regular-slnt=0.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: "Inter-Medium";
-  src: url(../assets/fonts/Inter-Medium-slnt=0.ttf) format("truetype");
+  font-family: 'Inter-Medium';
+  src: url(../assets/fonts/Inter-Medium-slnt=0.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: "Inter-Semibold";
-  src: url(../assets/fonts/Inter-SemiBold-slnt=0.ttf) format("truetype");
+  font-family: 'Inter-Semibold';
+  src: url(../assets/fonts/Inter-SemiBold-slnt=0.ttf) format('truetype');
 }
 
 @font-face {
-  font-family: "Inter-Bold";
-  src: url(../assets/fonts/Inter-Bold-slnt=0.ttf) format("truetype");
+  font-family: 'Inter-Bold';
+  src: url(../assets/fonts/Inter-Bold-slnt=0.ttf) format('truetype');
 }

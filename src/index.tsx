@@ -1,3 +1,6 @@
+import './languages/i18n';
+import './styles/typography.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 

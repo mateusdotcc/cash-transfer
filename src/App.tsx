@@ -1,5 +1,3 @@
-import './languages/i18n';
-
 import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
