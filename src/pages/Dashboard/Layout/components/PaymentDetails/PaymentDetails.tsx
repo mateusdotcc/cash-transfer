@@ -27,7 +27,11 @@ import {
   Submit,
 } from './PaymentsDetails.styled';
 
-const PaymentDetails: React.FC = () => {
+interface Props {
+  onSubmitConfirm: () => void;
+}
+
+const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm }) => {
   const { t } = useTranslation();
 
   const {
@@ -129,7 +133,7 @@ const PaymentDetails: React.FC = () => {
         </li>
       </ContainerTotal>
 
-      <Submit>{t('common:button.confirm')}</Submit>
+      <Submit onClick={onSubmitConfirm}>{t('common:button.confirm')}</Submit>
     </Container>
   );
 };

@@ -13,6 +13,7 @@ const initialValue: DashboardState = {
   youSend: 0,
   recipientGets: 0,
   delivery: moment().set('hour', 12).toString(),
+  typeDelivery: 'Express',
   fromCountry: {
     label: 'Brazil',
     id: 'BRL',
@@ -66,11 +67,10 @@ export default function dashboard(
         ...state,
         youSend: Number(action.value),
         recipientGets: currency(result, {
-          fromCents: false,
           symbol: Object.values(symbols)[
             Object.keys(symbols).indexOf(toCountry.value)
           ],
-        }).format(),
+        }).value,
       };
 
     case '@dashboard/UPDATE_DELIVERY_DATE':
@@ -85,6 +85,7 @@ export default function dashboard(
       return {
         ...state,
         delivery: dateDelivery.toString(),
+        typeDelivery: action.typeDelivery,
       };
 
     default:

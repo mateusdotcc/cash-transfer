@@ -20,6 +20,7 @@ export interface YouSend {
 export interface DeliveryDate {
   type: string;
   date: string;
+  typeDelivery: string;
 }
 
 export interface Country {
@@ -35,6 +36,7 @@ export interface DashboardState {
   youSend: number;
   recipientGets: number | string;
   delivery: string;
+  typeDelivery: string;
   fromCountry: Country;
   toCountry: Country;
 }

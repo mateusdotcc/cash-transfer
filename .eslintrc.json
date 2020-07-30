@@ -31,6 +31,7 @@
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "no-case-declarations": "off",
+    "no-alert": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

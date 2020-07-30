@@ -41,9 +41,13 @@ export function updateYouSend(value: string): YouSend {
   };
 }
 
-export function updateDeliveryDate(date: string): DeliveryDate {
+export function updateDeliveryDate(
+  date: string,
+  typeDelivery: string,
+): DeliveryDate {
   return {
     type: '@dashboard/UPDATE_DELIVERY_DATE',
     date,
+    typeDelivery,
   };
 }

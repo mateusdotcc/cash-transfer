@@ -20,13 +20,15 @@ import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 interface Props {
   onClickCountry: (selectorName: string, country: Country) => void;
   onChangeYouSend: (value: string) => void;
-  onUpdateDateCalendar: (date: string) => void;
+  onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
+  onSubmitConfirm: () => void;
 }
 
 const DashboardLayout: React.FC<Props> = ({
   onClickCountry,
   onChangeYouSend,
   onUpdateDateCalendar,
+  onSubmitConfirm,
 }) => {
   const { t } = useTranslation();
 
@@ -63,7 +65,7 @@ const DashboardLayout: React.FC<Props> = ({
             <ChoosePlan onUpdateDateCalendar={onUpdateDateCalendar} />
           </Main>
 
-          <PaymentDetails />
+          <PaymentDetails onSubmitConfirm={onSubmitConfirm} />
         </Content>
       </Center>
     </Container>

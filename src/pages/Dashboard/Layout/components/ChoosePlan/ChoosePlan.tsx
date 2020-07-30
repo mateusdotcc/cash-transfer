@@ -24,7 +24,7 @@ import {
 } from './ChoosePlay.styled';
 
 interface Props {
-  onUpdateDateCalendar: (date: string) => void;
+  onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
 }
 
 const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
@@ -32,11 +32,10 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
 
   const { colors } = useContext(ThemeContext);
 
-  // const format = ''; // HH to show Hours
   const formatExpress = '[Get] D MMMM YYYY [till 12pm]';
   const formatStandard = '[Get] D MMMM YYYY [till 6pm]';
 
-  const { delivery } = useSelector(
+  const { delivery, typeDelivery } = useSelector(
     (state: { dashboard: DashboardState }) => state.dashboard,
   );
 
@@ -46,7 +45,7 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
         <h2>{t('dashboard:chooseAPlan')}</h2>
 
         <ButtonDate>
-          {t('common:selects.date.placeholder')}{' '}
+          {t('common:selects.date.placeholder')}
           <FiCalendar size={18} color={colors.onSecondary} />
         </ButtonDate>
 
@@ -60,8 +59,9 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
           showNow={false}
           allowClear={false}
           showToday={false}
-          // showTime={{ format }}
-          onChange={(_, dateString) => onUpdateDateCalendar(dateString)}
+          onChange={(_, dateString) =>
+            onUpdateDateCalendar(dateString, typeDelivery)
+          }
         />
       </Header>
 
@@ -74,7 +74,9 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                 id="opt-express"
                 name="plan"
                 value={moment(delivery).set('hour', 12).toString()}
-                onChange={event => onUpdateDateCalendar(event.target.value)}
+                onChange={event =>
+                  onUpdateDateCalendar(event.target.value, 'Express')
+                }
                 defaultChecked
               />
 
@@ -102,7 +104,9 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                 id="opt-standard"
                 name="plan"
                 value={moment(delivery).set('hour', 6).toString()}
-                onChange={event => onUpdateDateCalendar(event.target.value)}
+                onChange={event =>
+                  onUpdateDateCalendar(event.target.value, 'Standard')
+                }
               />
 
               <ContainerItem>
@@ -129,7 +133,9 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                 id="opt-today"
                 name="plan"
                 value={moment(delivery).set('hour', 8).toString()}
-                onChange={event => onUpdateDateCalendar(event.target.value)}
+                onChange={event =>
+                  onUpdateDateCalendar(event.target.value, 'Today')
+                }
               />
 
               <ContainerItem>
