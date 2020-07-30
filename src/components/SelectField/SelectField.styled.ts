@@ -72,9 +72,6 @@ export const Selected = styled.div`
 
   span {
     white-space: nowrap;
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
-
     width: calc(100% - 18rem);
   }
 `;
@@ -89,6 +86,7 @@ export const List = styled.ul`
   top: 58px;
   left: 0;
   z-index: 10;
+  padding-bottom: 0.5rem;
   width: inherit;
   max-height: 410px;
   overflow: hidden;

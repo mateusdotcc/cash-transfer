@@ -42,6 +42,8 @@ const SelectField: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [searchCountries, setSearchCountries] = useState<Country[]>([]);
   const { colors } = useContext(ThemeContext);
   const selectRef = useRef(null);
 
@@ -49,13 +51,33 @@ const SelectField: React.FC<Props> = ({
     if (selectRef.current) {
       if (!(selectRef.current! as any).contains(event.target)) {
         setOpen(false);
+        setIsSearch(false);
+        setSearchCountries([]);
       }
     }
   }, []);
 
   const handleClickSelect = useCallback(() => {
-    setOpen(!open);
-  }, [open]);
+    setOpen(true);
+  }, []);
+
+  const handleInputFilter = useCallback(
+    (value: string) => {
+      if (value.length > 0) {
+        setIsSearch(true);
+
+        const searchCountry = data.filter((country: Country) =>
+          country.label.toLowerCase().includes(value.toLowerCase()),
+        );
+
+        return setSearchCountries(searchCountry);
+      }
+
+      setSearchCountries([]);
+      setIsSearch(false);
+    },
+    [data],
+  );
 
   useEffect(() => {
     if (open) {
@@ -85,6 +107,7 @@ const SelectField: React.FC<Props> = ({
                 <input
                   type="text"
                   placeholder={t('common:selects.country.placeholder')}
+                  onChange={event => handleInputFilter(event.target.value)}
                 />
                 <FiSearch />
               </Search>
@@ -102,19 +125,39 @@ const SelectField: React.FC<Props> = ({
 
       <List>
         <Scrollbar alwaysShowTracks continuousScrolling={false}>
-          {data.map((item: Country) => (
-            <li key={item.id}>
-              <Button
-                onClick={() => {
-                  onClickCountry(selectorName, item);
-                  handleClickSelect();
-                }}
-              >
-                {item.flag && <Flag source={item.flag} />}
-                {item.label}
-              </Button>
-            </li>
-          ))}
+          {!isSearch ? (
+            <>
+              {data.map((item: Country) => (
+                <li key={item.id}>
+                  <Button
+                    onClick={() => {
+                      onClickCountry(selectorName, item);
+                      setOpen(false);
+                    }}
+                  >
+                    {item.flag && <Flag source={item.flag} />}
+                    {item.label}
+                  </Button>
+                </li>
+              ))}
+            </>
+          ) : (
+            <>
+              {searchCountries.map((item: Country) => (
+                <li key={item.id}>
+                  <Button
+                    onClick={() => {
+                      onClickCountry(selectorName, item);
+                      setOpen(false);
+                    }}
+                  >
+                    {item.flag && <Flag source={item.flag} />}
+                    {item.label}
+                  </Button>
+                </li>
+              ))}
+            </>
+          )}
         </Scrollbar>
       </List>
     </Container>
