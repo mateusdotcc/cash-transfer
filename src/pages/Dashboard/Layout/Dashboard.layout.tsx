@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import currency from 'currency.js';
 
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
@@ -42,7 +43,9 @@ const DashboardLayout: React.FC<Props> = ({
           <MoneyAvailable>
             <h2>{t('dashboard:sendMoney')}</h2>
             <div>
-              <span>{moneyAvailable}</span>
+              <span>
+                {currency(moneyAvailable, { fromCents: false }).format()}
+              </span>
               <p>{t('dashboard:available')}</p>
             </div>
           </MoneyAvailable>

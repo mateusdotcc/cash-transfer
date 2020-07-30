@@ -55,8 +55,9 @@ export const SelectResult = styled.div`
   padding: 2.7rem 2.6rem;
   height: 12.8rem;
   border-radius: 0.8rem;
+  max-width: 267px;
 
-  p:first-of-type {
+  > p:first-of-type {
     color: ${props => props.theme.colors.onSecondary};
     font-size: 1.4rem;
   }
@@ -87,6 +88,13 @@ export const Value = styled.span`
         color: transparent;
       }
     }
+  }
+
+  p {
+    width: calc(100% - 4rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   span {

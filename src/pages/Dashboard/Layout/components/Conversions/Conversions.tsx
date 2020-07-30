@@ -73,11 +73,13 @@ const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
           <p>{t('common:recipientGets')}</p>
 
           <Value>
-            {currency(recipientGets, {
-              symbol: Object.values(symbols)[
-                Object.keys(symbols).indexOf(toCountry.value)
-              ],
-            }).format()}
+            <p>
+              {currency(recipientGets, {
+                symbol: Object.values(symbols)[
+                  Object.keys(symbols).indexOf(toCountry.value)
+                ],
+              }).format()}
+            </p>
 
             <span>{toCountry.value}</span>
           </Value>

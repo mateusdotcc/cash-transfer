@@ -68,11 +68,15 @@ export const Selected = styled.div`
 
   svg {
     margin-left: 4rem;
+    min-width: 2rem;
   }
 
-  span {
+  span:last-of-type {
     white-space: nowrap;
-    width: calc(100% - 18rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    width: calc(100% - 14rem);
   }
 `;
 
@@ -104,7 +108,7 @@ export const Flag = styled.span<{ source: string }>`
   background-image: url(${props => props.source});
 
   display: inline-block;
-  margin: 0 1.5rem 0 4.9rem;
+  margin: 0 1.5rem 0 3.9rem;
   min-width: 20px;
   max-width: 20px;
   width: 2rem;
@@ -147,8 +151,8 @@ export const Container = styled.div<{ isOpen: boolean }>`
 
   position: relative;
   margin-bottom: 2.8rem;
-  min-width: 267px;
-  width: 100%;
+  max-width: 267px;
+  width: 26.7rem;
 
   ${List} {
     visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
