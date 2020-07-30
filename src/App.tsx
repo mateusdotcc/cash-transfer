@@ -2,9 +2,13 @@ import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 
+import { Provider } from 'react-redux';
+
 import usePersistedState from './hooks/usePersistedState';
 
-import Routes from './routes/';
+import Routes from './routes';
+
+import store from './store';
 
 import light from './styles/themes/theme-light';
 
@@ -15,12 +19,14 @@ const App: React.FC = () => {
 
   return (
     <Suspense fallback={<p>Loading...</p>}>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <GlobalStyle />
-          <Routes />
-        </BrowserRouter>
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <GlobalStyle />
+            <Routes />
+          </BrowserRouter>
+        </ThemeProvider>
+      </Provider>
     </Suspense>
   );
 };

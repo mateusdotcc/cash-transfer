@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  .ant-picker {
+    opacity: 0;
+    left: 12px;
+    cursor: pointer;
+
+    input {
+      cursor: pointer;
+    }
+  }
+`;
 
 export const Header = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
+  position: relative;
   margin-bottom: 2.7rem;
 
   h2 {
@@ -175,4 +186,21 @@ export const Price = styled.span`
   font-family: ${props => props.theme.typography.primaryMedium};
 
   font-size: 1.8rem;
+`;
+
+export const ButtonDate = styled.button`
+  color: ${props => props.theme.colors.secondary};
+
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  svg {
+    margin-left: 1.3rem;
+  }
 `;

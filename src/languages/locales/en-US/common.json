@@ -6,6 +6,7 @@
   "recipientGets": "Recipient gets",
   "delivery": "Delivery",
   "conversionRate": "Conversion rate",
+  "writeAValue": "0.00",
   "selects": {
     "date": {
       "placeholder": "Choose the date:"

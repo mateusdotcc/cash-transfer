@@ -1,5 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import moment from 'moment';
+
+import { DashboardState } from 'store/modules/dashboard/types';
+import { useSelector } from 'react-redux';
 
 import {
   FiArrowRight,
@@ -7,8 +11,6 @@ import {
   FiDollarSign,
   FiShuffle,
 } from 'react-icons/fi';
-
-import FlagAsset from 'assets/images/flag.png';
 
 import {
   Container,
@@ -25,6 +27,16 @@ import {
 const PaymentDetails: React.FC = () => {
   const { t } = useTranslation();
 
+  const {
+    fromCountry,
+    toCountry,
+    youSend,
+    recipientGets,
+    delivery,
+  } = useSelector((state: { dashboard: DashboardState }) => state.dashboard);
+
+  const formatDelivery = 'D MMMM [till] Ha';
+
   return (
     <Container>
       <Header>
@@ -33,11 +45,11 @@ const PaymentDetails: React.FC = () => {
 
       <Conversion>
         <div>
-          <span>22,124</span>
+          <span>{youSend}</span>
 
           <ContainerFlag>
-            <Flag source={FlagAsset} />
-            <span>BRL</span>
+            <Flag source={fromCountry.flag} />
+            <span>{fromCountry.value}</span>
           </ContainerFlag>
         </div>
 
@@ -46,11 +58,11 @@ const PaymentDetails: React.FC = () => {
         </Equal>
 
         <div>
-          <span>22,124</span>
+          <span>{recipientGets}</span>
 
           <ContainerFlag>
-            <Flag source={FlagAsset} />
-            <span>EUR</span>
+            <Flag source={toCountry.flag} />
+            <span>{toCountry.value}</span>
           </ContainerFlag>
         </div>
       </Conversion>
@@ -64,7 +76,7 @@ const PaymentDetails: React.FC = () => {
             {t('common:delivery')}
           </span>
 
-          <strong>26 July till 12pm</strong>
+          <strong>{moment(delivery).format(formatDelivery)}</strong>
         </li>
 
         <li>
@@ -73,7 +85,7 @@ const PaymentDetails: React.FC = () => {
             {t('common:conversionRate')}
           </span>
 
-          <strong>22,124</strong>
+          <strong>{youSend}</strong>
         </li>
 
         <li>
@@ -82,7 +94,7 @@ const PaymentDetails: React.FC = () => {
             {t('common:recipientGets')}
           </span>
 
-          <strong>4,124</strong>
+          <strong>{recipientGets}</strong>
         </li>
       </ContainerTotal>
 

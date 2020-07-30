@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import moment from 'moment';
+
+import { useSelector } from 'react-redux';
+import { DashboardState } from 'store/modules/dashboard/types';
 
 import { DatePicker } from 'antd';
 
@@ -16,93 +20,135 @@ import {
   Description,
   Price,
   Checkmark,
+  ButtonDate,
 } from './ChoosePlay.styled';
 
-const ChoosePlan: React.FC = () => {
+interface Props {
+  onUpdateDateCalendar: (date: string) => void;
+}
+
+const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
   const { t } = useTranslation();
 
   const { colors } = useContext(ThemeContext);
+
+  // const format = ''; // HH to show Hours
+  const formatExpress = '[Get] D MMMM YYYY [till 12pm]';
+  const formatStandard = '[Get] D MMMM YYYY [till 6pm]';
+
+  const { delivery } = useSelector(
+    (state: { dashboard: DashboardState }) => state.dashboard,
+  );
 
   return (
     <Container>
       <Header>
         <h2>{t('dashboard:chooseAPlan')}</h2>
 
+        <ButtonDate>
+          {t('common:selects.date.placeholder')}{' '}
+          <FiCalendar size={18} color={colors.onSecondary} />
+        </ButtonDate>
+
         <DatePicker
           placeholder={t('common:selects.date.placeholder')}
           suffixIcon={<FiCalendar size={18} color={colors.onSecondary} />}
+          defaultValue={moment()}
           size="large"
-          bordered={false}
-          showTime
           inputReadOnly
+          bordered={false}
+          showNow={false}
+          allowClear={false}
+          showToday={false}
+          // showTime={{ format }}
+          onChange={(_, dateString) => onUpdateDateCalendar(dateString)}
         />
       </Header>
 
       <List>
-        <li>
-          <label>
-            <input type="radio" name="plan" defaultChecked />
+        <form>
+          <li>
+            <label htmlFor="opt-express">
+              <input
+                type="radio"
+                id="opt-express"
+                name="plan"
+                value={moment(delivery).set('hour', 12).toString()}
+                onChange={event => onUpdateDateCalendar(event.target.value)}
+                defaultChecked
+              />
 
-            <ContainerItem>
-              <Checkmark>
-                <FiCheck />
-              </Checkmark>
+              <ContainerItem>
+                <Checkmark>
+                  <FiCheck />
+                </Checkmark>
 
-              <div>
-                <Content>
-                  <Title>Get 27 July 2020 till 12pm</Title>
-                  <Description>{t('dashboard:express')}</Description>
-                </Content>
+                <div>
+                  <Content>
+                    <Title>{moment(delivery).format(formatExpress)}</Title>
+                    <Description>{t('dashboard:express')}</Description>
+                  </Content>
 
-                <Price>$ 0.99</Price>
-              </div>
-            </ContainerItem>
-          </label>
-        </li>
+                  <Price>$ 0.99</Price>
+                </div>
+              </ContainerItem>
+            </label>
+          </li>
 
-        <li>
-          <label>
-            <input type="radio" name="plan" />
+          <li>
+            <label htmlFor="opt-standard">
+              <input
+                type="radio"
+                id="opt-standard"
+                name="plan"
+                value={moment(delivery).set('hour', 6).toString()}
+                onChange={event => onUpdateDateCalendar(event.target.value)}
+              />
 
-            <ContainerItem>
-              <Checkmark>
-                <FiCheck />
-              </Checkmark>
+              <ContainerItem>
+                <Checkmark>
+                  <FiCheck />
+                </Checkmark>
 
-              <div>
-                <Content>
-                  <Title>Get 27 July 2020 till 12pm</Title>
-                  <Description>{t('dashboard:standard')}</Description>
-                </Content>
+                <div>
+                  <Content>
+                    <Title>{moment(delivery).format(formatStandard)}</Title>
+                    <Description>{t('dashboard:standard')}</Description>
+                  </Content>
 
-                <Price>$ 1.00</Price>
-              </div>
-            </ContainerItem>
-          </label>
-        </li>
+                  <Price>$ 1.00</Price>
+                </div>
+              </ContainerItem>
+            </label>
+          </li>
 
-        <li>
-          <label>
-            <input type="radio" name="plan" />
+          <li>
+            <label htmlFor="opt-today">
+              <input
+                type="radio"
+                id="opt-today"
+                name="plan"
+                value={moment(delivery).set('hour', 8).toString()}
+                onChange={event => onUpdateDateCalendar(event.target.value)}
+              />
 
-            <ContainerItem>
-              <Checkmark>
-                <FiCheck />
-              </Checkmark>
+              <ContainerItem>
+                <Checkmark>
+                  <FiCheck />
+                </Checkmark>
 
-              <div>
-                <Content>
-                  <Title>Get today till 8pm</Title>
-                  <Description>
-                    {t('dashboard:onlyOnWorking')} ??{t('dashboard:to')} ??
-                  </Description>
-                </Content>
+                <div>
+                  <Content>
+                    <Title>{t('dashboard:getToday')}</Title>
+                    <Description>{t('dashboard:onlyOnWorking')}</Description>
+                  </Content>
 
-                <Price>$ 1.00</Price>
-              </div>
-            </ContainerItem>
-          </label>
-        </li>
+                  <Price>$ 1.00</Price>
+                </div>
+              </ContainerItem>
+            </label>
+          </li>
+        </form>
       </List>
     </Container>
   );

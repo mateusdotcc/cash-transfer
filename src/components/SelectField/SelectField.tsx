@@ -1,11 +1,22 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+  useRef,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
+import { ThemeContext } from 'styled-components';
+import Scrollbar from 'react-smooth-scrollbar';
 
+import { Country } from 'store/modules/dashboard/types';
+
+import { CircleSpinner } from 'react-spinners-kit';
 import { FiChevronDown, FiSearch } from 'react-icons/fi';
 
 import {
   Container,
+  Loader,
   Current,
   List,
   Button,
@@ -14,79 +25,97 @@ import {
   Selected,
 } from './SelectField.styled';
 
-interface Country {
-  id: string;
-  flag: string;
-  label: string;
-  value: string;
-}
-
 interface Props {
+  selectorName: string;
+  data: Country[];
+  currentData: Country;
   selectPlaceholder?: string;
-  onClickCountry: (item: Country) => void;
+  onClickCountry: (selectorName: string, item: Country) => void;
 }
 
 const SelectField: React.FC<Props> = ({
+  selectorName,
+  data = [],
+  currentData = {},
   selectPlaceholder,
   onClickCountry,
 }) => {
   const { t } = useTranslation();
-
-  const [countries, setCountries] = useState<Country[]>([]);
   const [open, setOpen] = useState(false);
+  const { colors } = useContext(ThemeContext);
+  const selectRef = useRef(null);
 
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        'https://my-json-server.typicode.com/juliomerisio/currency-json-server/currencies',
-      );
-
-      console.log(response.data);
-      setCountries(response.data);
+  const handleClickOutside = useCallback((event: MouseEvent) => {
+    if (selectRef.current) {
+      if (!(selectRef.current! as any).contains(event.target)) {
+        setOpen(false);
+      }
     }
-
-    getData();
   }, []);
 
   const handleClickSelect = useCallback(() => {
     setOpen(!open);
   }, [open]);
 
+  useEffect(() => {
+    if (open) {
+      document.addEventListener('click', handleClickOutside, true);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [open, handleClickOutside]);
+
   return (
-    <Container isOpen={open}>
-      <Current onClick={handleClickSelect} isActive={open}>
-        {open ? (
-          <Search>
-            <input
-              type="text"
-              placeholder={t('common:selects.country.placeholder')}
-            />
-            <FiSearch />
-          </Search>
+    <Container ref={selectRef} isOpen={open}>
+      <Current
+        isActive={open}
+        onClick={handleClickSelect}
+        disabled={data.length === 0}
+      >
+        {data.length === 0 ? (
+          <Loader>
+            <CircleSpinner size={20} color={colors.senary} />
+          </Loader>
         ) : (
-          <Selected>
-            {selectPlaceholder}
-            <Flag source={countries[11]?.flag} />
-            <span>{countries[11]?.label}</span>
-            <FiChevronDown size={18} />
-          </Selected>
+          <>
+            {open ? (
+              <Search>
+                <input
+                  type="text"
+                  placeholder={t('common:selects.country.placeholder')}
+                />
+                <FiSearch />
+              </Search>
+            ) : (
+              <Selected>
+                {selectPlaceholder}
+                {currentData.flag && <Flag source={currentData.flag} />}
+                <span>{currentData.label}</span>
+                <FiChevronDown size={18} />
+              </Selected>
+            )}
+          </>
         )}
       </Current>
 
       <List>
-        {countries.map((item: Country) => (
-          <li key={item.id}>
-            <Button
-              onClick={() => {
-                onClickCountry(item);
-                handleClickSelect();
-              }}
-            >
-              <Flag source={item.flag} />
-              {item.label}
-            </Button>
-          </li>
-        ))}
+        <Scrollbar alwaysShowTracks continuousScrolling={false}>
+          {data.map((item: Country) => (
+            <li key={item.id}>
+              <Button
+                onClick={() => {
+                  onClickCountry(selectorName, item);
+                  handleClickSelect();
+                }}
+              >
+                {item.flag && <Flag source={item.flag} />}
+                {item.label}
+              </Button>
+            </li>
+          ))}
+        </Scrollbar>
       </List>
     </Container>
   );

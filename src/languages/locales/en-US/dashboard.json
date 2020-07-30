@@ -8,6 +8,7 @@
   "paymentDetails": "Payment Details",
   "express": "Express",
   "standard": "Standard",
-  "onlyOnWorking": "Only on working days from",
+  "getToday": "Get today till 8pm",
+  "onlyOnWorking": "Only on working days from 11am to 8pm",
   "to": "to"
 }

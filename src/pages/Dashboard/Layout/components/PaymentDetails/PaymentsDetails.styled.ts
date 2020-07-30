@@ -67,7 +67,7 @@ export const Flag = styled.span<{ source: string }>`
   height: 1.2rem;
   border-radius: 50%;
 
-  background-size: cover;
+  background-size: 2rem 2rem;
   background-position: center center;
   background-repeat: no-repeat;
 `;

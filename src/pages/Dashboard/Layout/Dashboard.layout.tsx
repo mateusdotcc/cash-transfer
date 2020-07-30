@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Country, DashboardState } from 'store/modules/dashboard/types';
+import { useSelector } from 'react-redux';
+
 import { Aside } from 'components';
 
 import {
@@ -13,19 +16,22 @@ import {
 
 import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 
-interface Country {
-  id: string;
-  flag: string;
-  label: string;
-  value: string;
-}
-
 interface Props {
-  onClickCountry: (country: Country) => void;
+  onClickCountry: (selectorName: string, country: Country) => void;
+  onChangeYouSend: (value: string) => void;
+  onUpdateDateCalendar: (date: string) => void;
 }
 
-const DashboardLayout: React.FC<Props> = ({ onClickCountry }) => {
+const DashboardLayout: React.FC<Props> = ({
+  onClickCountry,
+  onChangeYouSend,
+  onUpdateDateCalendar,
+}) => {
   const { t } = useTranslation();
+
+  const { moneyAvailable } = useSelector(
+    (state: { dashboard: DashboardState }) => state.dashboard,
+  );
 
   return (
     <Container>
@@ -36,7 +42,7 @@ const DashboardLayout: React.FC<Props> = ({ onClickCountry }) => {
           <MoneyAvailable>
             <h2>{t('dashboard:sendMoney')}</h2>
             <div>
-              <span>22,124</span>
+              <span>{moneyAvailable}</span>
               <p>{t('dashboard:available')}</p>
             </div>
           </MoneyAvailable>
@@ -46,9 +52,12 @@ const DashboardLayout: React.FC<Props> = ({ onClickCountry }) => {
 
         <Content>
           <Main>
-            <Conversions onClickCountry={onClickCountry} />
+            <Conversions
+              onClickCountry={onClickCountry}
+              onChangeYouSend={onChangeYouSend}
+            />
 
-            <ChoosePlan />
+            <ChoosePlan onUpdateDateCalendar={onUpdateDateCalendar} />
           </Main>
 
           <PaymentDetails />

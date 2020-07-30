@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
+export const Loader = styled.span`
+  display: flex;
+  justify-content: center;
+`;
+
 export const Current = styled.button<{ isActive: boolean }>`
   font-family: ${props => props.theme.typography.primarySemibold};
   background-color: ${props => props.theme.colors.quaternary};
@@ -23,6 +28,10 @@ export const Current = styled.button<{ isActive: boolean }>`
       css`
         background-color: ${shade(0.1, props.theme.colors.quaternary)};
       `}
+  }
+
+  &:disabled {
+    pointer-events: none;
   }
 
   ${props =>
@@ -60,6 +69,12 @@ export const Selected = styled.div`
   svg {
     margin-left: 4rem;
   }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 `;
 
 export const List = styled.ul`
@@ -69,7 +84,7 @@ export const List = styled.ul`
   flex-direction: column;
 
   position: absolute;
-  top: 53px;
+  top: 58px;
   left: 0;
   width: inherit;
   max-height: 240px;
@@ -77,10 +92,6 @@ export const List = styled.ul`
 
   li {
     width: 100%;
-
-    &:first-child {
-      margin-top: 0.5rem;
-    }
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
@@ -93,9 +104,10 @@ export const Flag = styled.span<{ source: string }>`
 
   display: inline-block;
   margin: 0 1.5rem 0 4.9rem;
+  min-width: 20px;
   width: 2rem;
   height: 2rem;
-  background-size: cover;
+  background-size: 3.2rem 3.2rem;
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 50%;

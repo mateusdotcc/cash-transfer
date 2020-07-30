@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useSelector } from 'react-redux';
+import { Country, DashboardState } from 'store/modules/dashboard/types';
+
 import { FiRefreshCcw } from 'react-icons/fi';
 
 import { SelectField } from 'components';
@@ -14,24 +17,25 @@ import {
   Value,
 } from './Conversions.styled';
 
-interface Country {
-  id: string;
-  flag: string;
-  label: string;
-  value: string;
-}
-
 interface Props {
-  onClickCountry: (country: Country) => void;
+  onClickCountry: (selectorName: string, country: Country) => void;
+  onChangeYouSend: (value: string) => void;
 }
 
-const Conversions: React.FC<Props> = ({ onClickCountry }) => {
+const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
   const { t } = useTranslation();
+
+  const { fromCountry, toCountry, countries, recipientGets } = useSelector(
+    (state: { dashboard: DashboardState }) => state.dashboard,
+  );
 
   return (
     <Container>
       <From>
         <SelectField
+          selectorName="from"
+          data={countries}
+          currentData={fromCountry}
           selectPlaceholder={t('common:selects.country.from')}
           onClickCountry={onClickCountry}
         />
@@ -40,8 +44,11 @@ const Conversions: React.FC<Props> = ({ onClickCountry }) => {
           <p>{t('common:youSend')}</p>
 
           <Value>
-            22,124
-            <span>BRL</span>
+            <input
+              placeholder={t('common:writeAValue')}
+              onChange={event => onChangeYouSend(event.target.value)}
+            />
+            <span>{fromCountry.value}</span>
           </Value>
         </SelectResult>
       </From>
@@ -52,6 +59,9 @@ const Conversions: React.FC<Props> = ({ onClickCountry }) => {
 
       <To>
         <SelectField
+          selectorName="to"
+          data={countries}
+          currentData={toCountry}
           selectPlaceholder={t('common:selects.country.to')}
           onClickCountry={onClickCountry}
         />
@@ -60,8 +70,8 @@ const Conversions: React.FC<Props> = ({ onClickCountry }) => {
           <p>{t('common:recipientGets')}</p>
 
           <Value>
-            4,124
-            <span>EUR</span>
+            {recipientGets}
+            <span>{toCountry.value}</span>
           </Value>
         </SelectResult>
       </To>

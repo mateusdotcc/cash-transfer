@@ -1,0 +1,11 @@
+.scrollbar-track {
+  background-color: transparent !important;
+}
+
+.scrollbar-thumb {
+  left: -4px !important;
+  width: 0.6rem !important;
+  border-radius: 3px !important;
+  background-color: #3e4c59 !important;
+  opacity: 0.8 !important;
+}

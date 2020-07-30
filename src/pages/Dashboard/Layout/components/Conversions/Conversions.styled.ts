@@ -62,12 +62,32 @@ export const SelectResult = styled.div`
   }
 `;
 
-export const Value = styled.p`
+export const Value = styled.span`
   color: ${props => props.theme.colors.quinary};
   font-family: ${props => props.theme.typography.primarySemibold};
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
   margin-top: 0.8rem;
   font-size: 3rem;
+
+  input {
+    max-width: 168px;
+    background-color: transparent;
+    border: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:focus {
+      ::placeholder {
+        color: transparent;
+      }
+    }
+  }
 
   span {
     margin-left: 1.2rem;
