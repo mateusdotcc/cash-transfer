@@ -1,10 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import currency from 'currency.js';
 
 import { useSelector } from 'react-redux';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 
 import { FiRefreshCcw } from 'react-icons/fi';
+import symbols from 'assets/mock/symbols.json';
 
 import { SelectField } from 'components';
 
@@ -48,6 +50,7 @@ const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
               placeholder={t('common:writeAValue')}
               onChange={event => onChangeYouSend(event.target.value)}
             />
+
             <span>{fromCountry.value}</span>
           </Value>
         </SelectResult>
@@ -70,7 +73,12 @@ const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
           <p>{t('common:recipientGets')}</p>
 
           <Value>
-            {recipientGets}
+            {currency(recipientGets, {
+              symbol: Object.values(symbols)[
+                Object.keys(symbols).indexOf(toCountry.value)
+              ],
+            }).format()}
+
             <span>{toCountry.value}</span>
           </Value>
         </SelectResult>

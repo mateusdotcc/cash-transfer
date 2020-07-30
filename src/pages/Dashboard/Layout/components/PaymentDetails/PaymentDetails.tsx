@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
+import currency from 'currency.js';
+
+import symbols from 'assets/mock/symbols.json';
 
 import { DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
@@ -45,7 +48,14 @@ const PaymentDetails: React.FC = () => {
 
       <Conversion>
         <div>
-          <span>{youSend}</span>
+          <span>
+            {currency(youSend, {
+              fromCents: false,
+              symbol: Object.values(symbols)[
+                Object.keys(symbols).indexOf(fromCountry.value)
+              ],
+            }).format()}
+          </span>
 
           <ContainerFlag>
             <Flag source={fromCountry.flag} />
@@ -58,7 +68,14 @@ const PaymentDetails: React.FC = () => {
         </Equal>
 
         <div>
-          <span>{recipientGets}</span>
+          <span>
+            {currency(recipientGets, {
+              fromCents: false,
+              symbol: Object.values(symbols)[
+                Object.keys(symbols).indexOf(toCountry.value)
+              ],
+            }).format()}
+          </span>
 
           <ContainerFlag>
             <Flag source={toCountry.flag} />
@@ -85,7 +102,14 @@ const PaymentDetails: React.FC = () => {
             {t('common:conversionRate')}
           </span>
 
-          <strong>{youSend}</strong>
+          <strong>
+            {currency(youSend, {
+              fromCents: false,
+              symbol: Object.values(symbols)[
+                Object.keys(symbols).indexOf(fromCountry.value)
+              ],
+            }).format()}
+          </strong>
         </li>
 
         <li>
@@ -94,7 +118,14 @@ const PaymentDetails: React.FC = () => {
             {t('common:recipientGets')}
           </span>
 
-          <strong>{recipientGets}</strong>
+          <strong>
+            {currency(recipientGets, {
+              fromCents: false,
+              symbol: Object.values(symbols)[
+                Object.keys(symbols).indexOf(toCountry.value)
+              ],
+            }).format()}
+          </strong>
         </li>
       </ContainerTotal>
 

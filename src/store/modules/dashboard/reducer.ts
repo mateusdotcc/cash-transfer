@@ -3,6 +3,8 @@ import currency from 'currency.js';
 import moment from 'moment';
 
 import rates from 'assets/mock/rates.json';
+import symbols from 'assets/mock/symbols.json';
+
 import { DashboardState } from './types';
 
 const initialValue: DashboardState = {
@@ -63,7 +65,12 @@ export default function dashboard(
       return {
         ...state,
         youSend: Number(action.value),
-        recipientGets: currency(result).format(),
+        recipientGets: currency(result, {
+          fromCents: false,
+          symbol: Object.values(symbols)[
+            Object.keys(symbols).indexOf(toCountry.value)
+          ],
+        }).format(),
       };
 
     case '@dashboard/UPDATE_DELIVERY_DATE':

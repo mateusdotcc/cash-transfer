@@ -9,7 +9,8 @@ export const Container = styled.div`
   flex-direction: column;
 
   padding: 4rem 0;
-  width: 38.1rem;
+  max-width: 100%;
+  min-width: 381px;
   height: 65.4rem;
   border-radius: 0.4rem;
 `;
@@ -29,6 +30,8 @@ export const Conversion = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  padding: 0 2rem;
 
   > div {
     display: flex;

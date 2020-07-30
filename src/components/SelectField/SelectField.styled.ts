@@ -72,8 +72,10 @@ export const Selected = styled.div`
 
   span {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+
+    width: calc(100% - 18rem);
   }
 `;
 
@@ -86,8 +88,9 @@ export const List = styled.ul`
   position: absolute;
   top: 58px;
   left: 0;
+  z-index: 10;
   width: inherit;
-  max-height: 240px;
+  max-height: 410px;
   overflow: hidden;
 
   li {
@@ -105,6 +108,7 @@ export const Flag = styled.span<{ source: string }>`
   display: inline-block;
   margin: 0 1.5rem 0 4.9rem;
   min-width: 20px;
+  max-width: 20px;
   width: 2rem;
   height: 2rem;
   background-size: 3.2rem 3.2rem;
@@ -145,7 +149,8 @@ export const Container = styled.div<{ isOpen: boolean }>`
 
   position: relative;
   margin-bottom: 2.8rem;
-  width: 26.7rem;
+  min-width: 267px;
+  width: 100%;
 
   ${List} {
     visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};

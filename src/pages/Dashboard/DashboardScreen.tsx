@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { useDispatch } from 'react-redux';
-import { Country } from 'store/modules/dashboard/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { Country, DashboardState } from 'store/modules/dashboard/types';
 import {
   countriesRequest,
   setFromCountry,
@@ -15,20 +15,25 @@ import Dashboard from './Layout/Dashboard.layout';
 const DashboardScreen: React.FC = () => {
   const dispatch = useDispatch();
 
+  const { youSend } = useSelector(
+    (state: { dashboard: DashboardState }) => state.dashboard,
+  );
+
   useEffect(() => {
     dispatch(countriesRequest());
   }, [dispatch]);
 
   const handleClickCountry = useCallback(
     (selectorName: string, country: Country) => {
+      dispatch(updateYouSend(youSend.toString()));
+
       if (selectorName === 'from') {
         return dispatch(setFromCountry(country));
-        // return dispatch(updateYouSend())
       }
 
       return dispatch(setToCountry(country));
     },
-    [dispatch],
+    [dispatch, youSend],
   );
 
   const handleChangeYouSend = useCallback(

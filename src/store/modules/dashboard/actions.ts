@@ -1,28 +1,11 @@
-import { Country } from './types';
-
-interface CountriesRequest {
-  type: string;
-}
-
-interface CountriesSuccess {
-  type: string;
-  data: Country[];
-}
-
-interface SetCountry {
-  type: string;
-  country: Country;
-}
-
-interface YouSend {
-  type: string;
-  value: string;
-}
-
-interface DeliveryDate {
-  type: string;
-  date: string;
-}
+import {
+  Country,
+  CountriesRequest,
+  CountriesSuccess,
+  SetCountry,
+  YouSend,
+  DeliveryDate,
+} from './types';
 
 export function countriesRequest(): CountriesRequest {
   return {
