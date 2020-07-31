@@ -149,6 +149,7 @@ const SelectField: React.FC<Props> = ({
                     onClick={() => {
                       onClickCountry(selectorName, item);
                       setOpen(false);
+                      setIsSearch(false);
                     }}
                   >
                     {item.flag && <Flag source={item.flag} />}

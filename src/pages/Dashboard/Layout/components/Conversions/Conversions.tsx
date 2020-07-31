@@ -1,12 +1,11 @@
 import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
-import currency from 'currency.js';
+import currency from 'utils/currency';
 
 import { useSelector } from 'react-redux';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 
 import { FiRefreshCcw } from 'react-icons/fi';
-import symbols from 'assets/mock/symbols.json';
 
 import { SelectField } from 'components';
 
@@ -82,13 +81,7 @@ const Conversions: React.FC<Props> = ({
           <p>{t('common:recipientGets')}</p>
 
           <Value>
-            <p>
-              {currency(recipientGets, {
-                symbol: Object.values(symbols)[
-                  Object.keys(symbols).indexOf(toCountry.value)
-                ],
-              }).format()}
-            </p>
+            <p>{currency(recipientGets, toCountry.value)}</p>
 
             <span>{toCountry.value}</span>
           </Value>

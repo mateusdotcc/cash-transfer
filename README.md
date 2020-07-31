@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Todo - xState" title="ToDo MVC - xState" src="./src/assets/images/cover.jpeg" />
+  <img alt="Money Transfer App" title="Money Transfer App" src="./src/assets/images/cover.jpeg" />
 </h1>
 
 <h1 align="center">

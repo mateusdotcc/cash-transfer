@@ -1,9 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
-import currency from 'currency.js';
-
-import symbols from 'assets/mock/symbols.json';
+import currency from 'utils/currency';
 
 import { DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
@@ -52,14 +50,7 @@ const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm, ...rest }) => {
 
       <Conversion>
         <div>
-          <span>
-            {currency(youSend, {
-              fromCents: false,
-              symbol: Object.values(symbols)[
-                Object.keys(symbols).indexOf(fromCountry.value)
-              ],
-            }).format()}
-          </span>
+          <span>{currency(youSend, fromCountry.value)}</span>
 
           <ContainerFlag>
             <Flag source={fromCountry.flag} />
@@ -72,14 +63,7 @@ const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm, ...rest }) => {
         </Equal>
 
         <div>
-          <span>
-            {currency(recipientGets, {
-              fromCents: false,
-              symbol: Object.values(symbols)[
-                Object.keys(symbols).indexOf(toCountry.value)
-              ],
-            }).format()}
-          </span>
+          <span>{currency(recipientGets, toCountry.value)}</span>
 
           <ContainerFlag>
             <Flag source={toCountry.flag} />
@@ -106,14 +90,7 @@ const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm, ...rest }) => {
             {t('common:conversionRate')}
           </span>
 
-          <strong>
-            {currency(youSend, {
-              fromCents: false,
-              symbol: Object.values(symbols)[
-                Object.keys(symbols).indexOf(fromCountry.value)
-              ],
-            }).format()}
-          </strong>
+          <strong>{currency(youSend, fromCountry.value)}</strong>
         </li>
 
         <li>
@@ -122,14 +99,7 @@ const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm, ...rest }) => {
             {t('common:recipientGets')}
           </span>
 
-          <strong>
-            {currency(recipientGets, {
-              fromCents: false,
-              symbol: Object.values(symbols)[
-                Object.keys(symbols).indexOf(toCountry.value)
-              ],
-            }).format()}
-          </strong>
+          <strong>{currency(recipientGets, toCountry.value)}</strong>
         </li>
       </ContainerTotal>
 
