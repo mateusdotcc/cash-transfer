@@ -13,6 +13,14 @@ export const Container = styled.div`
   min-width: 381px;
   height: 65.4rem;
   border-radius: 0.4rem;
+
+  @media ${props => props.theme.breakpoints.laptopL} {
+    min-width: 355px;
+  }
+
+  @media ${props => props.theme.breakpoints.laptop} {
+    margin-bottom: 8.6rem;
+  }
 `;
 
 export const Header = styled.header`
@@ -90,6 +98,10 @@ export const Equal = styled.div`
   svg {
     color: ${props => props.theme.colors.secondary};
   }
+
+  @media ${props => props.theme.breakpoints.laptopL} {
+    margin: 0 3rem;
+  }
 `;
 
 export const Divider = styled.span`
@@ -127,6 +139,7 @@ export const ContainerTotal = styled.ul`
     display: flex;
     align-items: center;
     font-size: 1.7rem;
+    white-space: nowrap;
   }
 
   strong {
@@ -134,6 +147,7 @@ export const ContainerTotal = styled.ul`
     font-family: ${props => props.theme.typography.primarySemibold};
 
     font-size: 1.8rem;
+    white-space: nowrap;
   }
 
   svg {
@@ -144,4 +158,12 @@ export const ContainerTotal = styled.ul`
 export const Submit = styled(Button).attrs({ type: 'submit' })`
   margin: 0 auto;
   width: 30.1rem;
+
+  @media ${props => props.theme.breakpoints.laptopL} {
+    max-width: 200px;
+  }
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    max-width: 301px;
+  }
 `;

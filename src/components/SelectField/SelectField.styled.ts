@@ -157,4 +157,9 @@ export const Container = styled.div<{ isOpen: boolean }>`
   ${List} {
     visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
   }
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    max-width: 100%;
+    width: 100%;
+  }
 `;

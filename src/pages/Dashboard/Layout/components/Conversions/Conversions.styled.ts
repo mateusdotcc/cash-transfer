@@ -7,17 +7,25 @@ export const Container = styled.div`
   align-items: flex-end;
 
   margin-bottom: 7.4rem;
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 8.3rem;
+  }
 `;
 
 export const From = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    min-width: 100%;
+  }
 `;
 
-export const To = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+export const To = styled(From)``;
 
 export const ButtonConvert = styled.button`
   background-color: ${props => props.theme.colors.primary};
@@ -47,6 +55,24 @@ export const ButtonConvert = styled.button`
       transform: rotate(180deg);
     }
   }
+
+  @media ${props => props.theme.breakpoints.laptopL} {
+    margin: 0 1rem;
+    min-width: 40px;
+    min-height: 40px;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    top: 0;
+    margin: 2.8rem 0;
+
+    min-width: 50px;
+    min-height: 50px;
+    width: 5rem;
+    height: 5rem;
+  }
 `;
 
 export const SelectResult = styled.div`
@@ -60,6 +86,10 @@ export const SelectResult = styled.div`
   > p:first-of-type {
     color: ${props => props.theme.colors.onSecondary};
     font-size: 1.4rem;
+  }
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    max-width: 100%;
   }
 `;
 

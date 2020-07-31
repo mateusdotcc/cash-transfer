@@ -85,4 +85,8 @@ export const ButtonItem = styled(ButtonMenu).attrs<
         width: 0.5rem;
       }
     `}
+
+  @media ${props => props.theme.breakpoints.laptop} {
+    padding-left: 3rem;
+  }
 `;

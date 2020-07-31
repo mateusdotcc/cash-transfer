@@ -1,3 +1,5 @@
+import breakpoints from '../breakpoints';
+
 export default {
   title: 'light',
 
@@ -25,4 +27,6 @@ export default {
     primarySemibold: 'Inter-Semibold',
     primaryMedium: 'Inter-Medium',
   },
+
+  breakpoints,
 };

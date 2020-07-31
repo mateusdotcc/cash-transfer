@@ -10,4 +10,8 @@ export const Container = styled.ul`
       margin-right: 2.7rem;
     }
   }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    display: none;
+  }
 `;

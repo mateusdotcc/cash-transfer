@@ -9,6 +9,7 @@ export const Container = styled.div`
     font-family: ${props => props.theme.typography.primaryMedium};
 
     margin-bottom: 1.4rem;
+    font-size: 3rem;
   }
 
   > div {

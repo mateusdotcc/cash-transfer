@@ -21,7 +21,7 @@ import {
   Price,
   Checkmark,
   ButtonDate,
-} from './ChoosePlay.styled';
+} from './ChoosePlan.styled';
 
 interface Props {
   onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
@@ -91,7 +91,7 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                     <Description>{t('dashboard:express')}</Description>
                   </Content>
 
-                  <Price>$ 0.99</Price>
+                  <Price>$0.99</Price>
                 </div>
               </ContainerItem>
             </label>
@@ -120,7 +120,7 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                     <Description>{t('dashboard:standard')}</Description>
                   </Content>
 
-                  <Price>$ 1.00</Price>
+                  <Price>$1.00</Price>
                 </div>
               </ContainerItem>
             </label>
@@ -149,7 +149,7 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
                     <Description>{t('dashboard:onlyOnWorking')}</Description>
                   </Content>
 
-                  <Price>$ 1.00</Price>
+                  <Price>$1.00</Price>
                 </div>
               </ContainerItem>
             </label>

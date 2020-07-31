@@ -10,6 +10,17 @@ export const Container = styled.div`
       cursor: pointer;
     }
   }
+
+  @media ${props => props.theme.breakpoints.laptop} {
+    margin-bottom: 9.6rem;
+  }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    .ant-picker {
+      top: 10px;
+      left: 0px;
+    }
+  }
 `;
 
 export const Header = styled.header`
@@ -38,6 +49,10 @@ export const Header = styled.header`
 
       font-size: 1.8rem;
     }
+  }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    flex-direction: column;
   }
 `;
 
@@ -102,6 +117,10 @@ export const ContainerItem = styled.div`
     ${Checkmark} {
       border-color: ${props => props.theme.colors.seventh};
     }
+  }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: 2.2rem 1.6rem 2.4rem 1.6rem;
   }
 `;
 
@@ -173,12 +192,20 @@ export const Title = styled.p`
 
   margin-bottom: 0.6rem;
   font-size: 1.8rem;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    margin-bottom: 0;
+  }
 `;
 
 export const Description = styled.p`
   color: ${props => props.theme.colors.onTertiary};
 
   font-size: 1.4rem;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const Price = styled.span`
@@ -186,6 +213,11 @@ export const Price = styled.span`
   font-family: ${props => props.theme.typography.primaryMedium};
 
   font-size: 1.8rem;
+  white-space: nowrap;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const ButtonDate = styled.button`
@@ -202,5 +234,11 @@ export const ButtonDate = styled.button`
 
   svg {
     margin-left: 1.3rem;
+  }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    top: 57px;
+    right: auto;
+    left: 0;
   }
 `;

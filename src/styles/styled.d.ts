@@ -3,6 +3,7 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
+
     colors: {
       primary: string;
       onPrimary: string;
@@ -20,11 +21,22 @@ declare module 'styled-components' {
       onSeventh: string;
       background: string;
     };
+
     typography: {
       primaryRegular: string;
       primaryBold: string;
       primarySemibold: string;
       primaryMedium: string;
+    };
+
+    breakpoints: {
+      mobileS: string;
+      mobile: string;
+      tablet: string;
+      tabletL: string;
+      laptop: string;
+      laptopL: string;
+      desktop: string;
     };
   }
 }
