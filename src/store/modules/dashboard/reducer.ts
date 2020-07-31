@@ -60,7 +60,7 @@ export default function dashboard(
       const result = convert(Number(value), {
         from: fromCountry.value,
         to: toCountry.value,
-        base: fromCountry.value,
+        base: 'EUR',
         rates,
       });
 
@@ -93,6 +93,13 @@ export default function dashboard(
       return {
         ...state,
         endAnimations: true,
+      };
+
+    case '@dashboard/REVERSE_CURRENCY':
+      return {
+        ...state,
+        fromCountry: action.to,
+        toCountry: action.from,
       };
 
     default:

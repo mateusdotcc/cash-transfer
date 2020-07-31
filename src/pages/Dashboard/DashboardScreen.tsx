@@ -10,6 +10,7 @@ import {
   updateYouSend,
   updateDeliveryDate,
   endAnimations,
+  reverseCurrency,
 } from 'store/modules/dashboard/actions';
 
 import Dashboard from './Layout/Dashboard.layout';
@@ -62,6 +63,13 @@ const DashboardScreen: React.FC = () => {
     [dispatch],
   );
 
+  const handleClickReverseCurrency = useCallback(
+    (from: Country, to: Country) => {
+      dispatch(reverseCurrency(from, to));
+    },
+    [dispatch],
+  );
+
   const handleSubmitConfirm = useCallback(() => {
     const payload = `
       {
@@ -81,6 +89,7 @@ const DashboardScreen: React.FC = () => {
     <Dashboard
       onClickCountry={handleClickCountry}
       onChangeYouSend={handleChangeYouSend}
+      onReverseCurrency={handleClickReverseCurrency}
       onUpdateDateCalendar={handleUpdateDateCalendar}
       onSubmitConfirm={handleSubmitConfirm}
     />

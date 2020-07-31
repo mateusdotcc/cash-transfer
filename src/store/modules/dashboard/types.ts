@@ -30,6 +30,12 @@ export interface Country {
   value: string;
 }
 
+export interface ReverseCurrency {
+  type: string;
+  from: Country;
+  to: Country;
+}
+
 export interface DashboardState {
   endAnimations: boolean;
   countries: Country[];

@@ -5,6 +5,7 @@ import {
   SetCountry,
   YouSend,
   DeliveryDate,
+  ReverseCurrency,
 } from './types';
 
 export function countriesRequest(): CountriesRequest {
@@ -55,5 +56,13 @@ export function updateDeliveryDate(
 export function endAnimations(): { type: string } {
   return {
     type: '@dashboard/END_ANIMATIONS',
+  };
+}
+
+export function reverseCurrency(from: Country, to: Country): ReverseCurrency {
+  return {
+    type: '@dashboard/REVERSE_CURRENCY',
+    from,
+    to,
   };
 }

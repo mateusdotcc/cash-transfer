@@ -19,6 +19,7 @@ import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 interface Props {
   onClickCountry: (selectorName: string, country: Country) => void;
   onChangeYouSend: (value: string | number) => void;
+  onReverseCurrency: (from: Country, to: Country) => void;
   onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
   onSubmitConfirm: () => void;
 }
@@ -26,6 +27,7 @@ interface Props {
 const DashboardLayout: React.FC<Props> = ({
   onClickCountry,
   onChangeYouSend,
+  onReverseCurrency,
   onUpdateDateCalendar,
   onSubmitConfirm,
 }) => {
@@ -70,6 +72,7 @@ const DashboardLayout: React.FC<Props> = ({
               className="container-conversions"
               onClickCountry={onClickCountry}
               onChangeYouSend={onChangeYouSend}
+              onClickReverseCurrency={onReverseCurrency}
             />
 
             <ChoosePlan

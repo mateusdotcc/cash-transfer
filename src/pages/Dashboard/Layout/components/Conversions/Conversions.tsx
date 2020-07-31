@@ -21,11 +21,13 @@ import {
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   onClickCountry: (selectorName: string, country: Country) => void;
+  onClickReverseCurrency: (from: Country, to: Country) => void;
   onChangeYouSend: (value: string) => void;
 }
 
 const Conversions: React.FC<Props> = ({
   onClickCountry,
+  onClickReverseCurrency,
   onChangeYouSend,
   ...rest
 }) => {
@@ -60,7 +62,9 @@ const Conversions: React.FC<Props> = ({
         </SelectResult>
       </From>
 
-      <ButtonConvert>
+      <ButtonConvert
+        onClick={() => onClickReverseCurrency(fromCountry, toCountry)}
+      >
         <FiRefreshCcw size={22} />
       </ButtonConvert>
 
