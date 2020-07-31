@@ -53,6 +53,7 @@ const Conversions: React.FC<Props> = ({
 
           <Value>
             <input
+              type="number"
               placeholder={t('common:writeAValue')}
               onChange={event => onChangeYouSend(event.target.value)}
             />

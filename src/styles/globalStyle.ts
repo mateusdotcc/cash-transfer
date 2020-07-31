@@ -51,6 +51,12 @@ export default createGlobalStyle`
 
   input {
     outline: none;
+
+    ::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {

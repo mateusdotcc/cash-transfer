@@ -24,8 +24,13 @@ export const UserId = styled.p`
   color: ${props => props.theme.colors.onTertiary};
 
   font-size: 1.6rem;
+  text-align: center;
 
   transition: font-size 0.35s;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    text-align: left;
+  }
 `;
 
 export const Container = styled.div`

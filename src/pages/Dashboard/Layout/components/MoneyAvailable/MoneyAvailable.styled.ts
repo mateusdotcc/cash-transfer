@@ -8,7 +8,7 @@ export const Container = styled.div`
     color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primaryMedium};
 
-    margin-bottom: 1.4rem;
+    margin-bottom: 0.7rem;
     font-size: 3rem;
   }
 
