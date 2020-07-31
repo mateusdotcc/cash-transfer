@@ -8,6 +8,7 @@ import symbols from 'assets/mock/symbols.json';
 import { DashboardState } from './types';
 
 const initialValue: DashboardState = {
+  endAnimations: false,
   countries: [],
   moneyAvailable: 22124,
   youSend: 0,
@@ -86,6 +87,12 @@ export default function dashboard(
         ...state,
         delivery: dateDelivery.toString(),
         typeDelivery: action.typeDelivery,
+      };
+
+    case '@dashboard/END_ANIMATIONS':
+      return {
+        ...state,
+        endAnimations: true,
       };
 
     default:

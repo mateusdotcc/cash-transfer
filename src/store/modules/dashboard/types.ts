@@ -31,6 +31,7 @@ export interface Country {
 }
 
 export interface DashboardState {
+  endAnimations: boolean;
   countries: Country[];
   moneyAvailable: number;
   youSend: number;

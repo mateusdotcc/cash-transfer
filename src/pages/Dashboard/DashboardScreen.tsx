@@ -9,6 +9,7 @@ import {
   setToCountry,
   updateYouSend,
   updateDeliveryDate,
+  endAnimations,
 } from 'store/modules/dashboard/actions';
 
 import Dashboard from './Layout/Dashboard.layout';
@@ -26,6 +27,10 @@ const DashboardScreen: React.FC = () => {
 
   useEffect(() => {
     dispatch(countriesRequest());
+
+    setTimeout(() => {
+      dispatch(endAnimations());
+    }, 1000);
   }, [dispatch]);
 
   const handleClickCountry = useCallback(

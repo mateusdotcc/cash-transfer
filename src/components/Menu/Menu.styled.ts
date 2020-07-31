@@ -12,8 +12,59 @@ export const Container = styled.div`
 
   width: 100%;
 
+  .container-user-details,
+  li {
+    visibility: hidden;
+    transform: translateY(60%);
+
+    transition: visibility 1s ${props => props.theme.easings.easeOutExpo},
+      transform 1s ${props => props.theme.easings.easeOutExpo};
+  }
+
   li {
     width: inherit;
+  }
+
+  &.animate {
+    .container-user-details,
+    li {
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .container-user-details {
+      transition-delay: 0.1s;
+    }
+
+    li {
+      &:nth-child(1) {
+        transition-delay: 0.2s;
+      }
+
+      &:nth-child(2) {
+        transition-delay: 0.3s;
+      }
+
+      &:nth-child(3) {
+        transition-delay: 0.4s;
+      }
+
+      &:nth-child(4) {
+        transition-delay: 0.5s;
+      }
+
+      &:nth-child(5) {
+        transition-delay: 0.6s;
+      }
+
+      &:nth-child(6) {
+        transition-delay: 0.7s;
+      }
+
+      &:nth-child(7) {
+        transition-delay: 0.8s;
+      }
+    }
   }
 `;
 

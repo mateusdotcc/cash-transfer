@@ -58,7 +58,7 @@ export default createGlobalStyle`
   }
 
   ::selection {
-    color: #ffffff;
-    background-color: #000000;
+    color: ${props => props.theme.colors.onSecondary};
+    background-color: ${props => props.theme.colors.onSenary};
   }
 `;

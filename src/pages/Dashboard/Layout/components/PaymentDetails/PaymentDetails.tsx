@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import currency from 'currency.js';
@@ -27,11 +27,11 @@ import {
   Submit,
 } from './PaymentsDetails.styled';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   onSubmitConfirm: () => void;
 }
 
-const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm }) => {
+const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm, ...rest }) => {
   const { t } = useTranslation();
 
   const {
@@ -45,7 +45,7 @@ const PaymentDetails: React.FC<Props> = ({ onSubmitConfirm }) => {
   const formatDelivery = 'D MMMM [till] Ha';
 
   return (
-    <Container>
+    <Container {...rest}>
       <Header>
         <h2>{t('dashboard:paymentDetails')}</h2>
       </Header>

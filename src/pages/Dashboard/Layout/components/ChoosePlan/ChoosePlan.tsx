@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { HTMLAttributes, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
@@ -23,11 +23,11 @@ import {
   ButtonDate,
 } from './ChoosePlan.styled';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
 }
 
-const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
+const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar, ...rest }) => {
   const { t } = useTranslation();
 
   const { colors } = useContext(ThemeContext);
@@ -40,7 +40,7 @@ const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar }) => {
   );
 
   return (
-    <Container>
+    <Container {...rest}>
       <Header>
         <h2>{t('dashboard:chooseAPlan')}</h2>
 

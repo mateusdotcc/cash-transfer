@@ -51,3 +51,9 @@ export function updateDeliveryDate(
     typeDelivery,
   };
 }
+
+export function endAnimations(): { type: string } {
+  return {
+    type: '@dashboard/END_ANIMATIONS',
+  };
+}

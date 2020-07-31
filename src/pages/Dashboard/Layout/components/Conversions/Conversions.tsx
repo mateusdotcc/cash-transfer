@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import currency from 'currency.js';
 
@@ -19,12 +19,16 @@ import {
   Value,
 } from './Conversions.styled';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   onClickCountry: (selectorName: string, country: Country) => void;
   onChangeYouSend: (value: string) => void;
 }
 
-const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
+const Conversions: React.FC<Props> = ({
+  onClickCountry,
+  onChangeYouSend,
+  ...rest
+}) => {
   const { t } = useTranslation();
 
   const { fromCountry, toCountry, countries, recipientGets } = useSelector(
@@ -32,7 +36,7 @@ const Conversions: React.FC<Props> = ({ onClickCountry, onChangeYouSend }) => {
   );
 
   return (
-    <Container>
+    <Container {...rest}>
       <From>
         <SelectField
           selectorName="from"

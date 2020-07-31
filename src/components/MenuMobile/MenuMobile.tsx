@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useCallback, useState } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+  useState,
+  HTMLAttributes,
+} from 'react';
 
 import { FiAlignRight, FiX, FiList } from 'react-icons/fi';
 
@@ -14,7 +20,9 @@ import {
   NavCta,
 } from './MenuMobile.styled';
 
-const MenuMobile: React.FC = () => {
+type Props = HTMLAttributes<HTMLDivElement>;
+
+const MenuMobile: React.FC<Props> = ({ ...rest }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openCta, setOpenCta] = useState(false);
 
@@ -48,6 +56,8 @@ const MenuMobile: React.FC = () => {
     if (menuRef && menuRef.current) {
       const menu = menuRef.current;
 
+      menu.classList.add('animate');
+
       window.onscroll = () => {
         if (window.scrollY > 50) {
           return menu?.classList.add('isScroll');
@@ -67,7 +77,7 @@ const MenuMobile: React.FC = () => {
   }, [handleClickCtaOutside, openCta]);
 
   return (
-    <Container ref={menuRef}>
+    <Container ref={menuRef} {...rest}>
       <header>
         <UserDetails />
 

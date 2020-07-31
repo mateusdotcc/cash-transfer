@@ -89,7 +89,7 @@ export const List = styled.ul`
   position: absolute;
   top: 58px;
   left: 0;
-  z-index: 10;
+  z-index: 15;
   padding-bottom: 0.5rem;
   width: inherit;
   max-height: 410px;

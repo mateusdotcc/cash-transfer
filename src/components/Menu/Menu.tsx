@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -23,9 +23,17 @@ import {
 const Menu: React.FC = () => {
   const { t } = useTranslation(['aside']);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (containerRef && containerRef.current) {
+      return containerRef.current?.classList.add('animate');
+    }
+  }, []);
+
   return (
-    <Container>
-      <User />
+    <Container ref={containerRef}>
+      <User className="container-user-details" />
 
       <ListPrimary>
         <li>

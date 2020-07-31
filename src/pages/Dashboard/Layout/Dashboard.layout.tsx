@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import currency from 'currency.js';
 
@@ -31,18 +31,26 @@ const DashboardLayout: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
 
-  const { moneyAvailable } = useSelector(
+  const containerCenter = useRef<HTMLDivElement>(null);
+
+  const { moneyAvailable, endAnimations } = useSelector(
     (state: { dashboard: DashboardState }) => state.dashboard,
   );
 
+  useEffect(() => {
+    if (containerCenter && containerCenter.current) {
+      return containerCenter.current?.classList.add('animate');
+    }
+  }, []);
+
   return (
-    <Container>
-      <MenuMobile />
+    <Container endAnimations={endAnimations}>
+      <MenuMobile className="container-menu-mobile" />
 
       <Aside />
 
-      <Center>
-        <Header>
+      <Center ref={containerCenter}>
+        <Header className="container-header">
           <MoneyAvailable>
             <h2>{t('dashboard:sendMoney')}</h2>
             <div>
@@ -59,14 +67,21 @@ const DashboardLayout: React.FC<Props> = ({
         <Content>
           <Main>
             <Conversions
+              className="container-conversions"
               onClickCountry={onClickCountry}
               onChangeYouSend={onChangeYouSend}
             />
 
-            <ChoosePlan onUpdateDateCalendar={onUpdateDateCalendar} />
+            <ChoosePlan
+              className="container-choose-plan"
+              onUpdateDateCalendar={onUpdateDateCalendar}
+            />
           </Main>
 
-          <PaymentDetails onSubmitConfirm={onSubmitConfirm} />
+          <PaymentDetails
+            className="container-payment-details"
+            onSubmitConfirm={onSubmitConfirm}
+          />
         </Content>
       </Center>
     </Container>

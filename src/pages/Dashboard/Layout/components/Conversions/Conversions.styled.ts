@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
+  position: relative;
+  z-index: 1;
   margin-bottom: 7.4rem;
 
   @media ${props => props.theme.breakpoints.tablet} {
