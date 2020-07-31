@@ -5,7 +5,7 @@ import currency from 'currency.js';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
 
-import { Aside } from 'components';
+import { Aside, MenuMobile } from 'components';
 
 import {
   MoneyAvailable,
@@ -38,6 +38,8 @@ const DashboardLayout: React.FC<Props> = ({
 
   return (
     <Container>
+      <MenuMobile />
+
       <Aside />
 
       <Center>

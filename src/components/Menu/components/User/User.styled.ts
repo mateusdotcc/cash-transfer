@@ -7,23 +7,25 @@ export const Avatar = styled.div`
     margin-bottom: 1.9rem;
     border-radius: 50%;
 
-    transition: opacity 0.25s;
+    transition: all 0.35s;
   }
 `;
 
 export const Username = styled.p`
   font-family: 'Inter-Semibold';
 
-  margin-bottom: 0.7rem;
+  margin-bottom: 0;
   font-size: 2.4rem;
 
-  transition: color 0.25s;
+  transition: color 0.25s, font-size 0.35s;
 `;
 
 export const UserId = styled.p`
   color: ${props => props.theme.colors.onTertiary};
 
   font-size: 1.6rem;
+
+  transition: font-size 0.35s;
 `;
 
 export const Container = styled.div`
@@ -42,4 +44,9 @@ export const Container = styled.div`
       color: ${props => props.theme.colors.onPrimary};
     }
   }
+`;
+
+export const Info = styled.span`
+  display: flex;
+  flex-direction: column;
 `;

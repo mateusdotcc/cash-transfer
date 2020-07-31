@@ -38,5 +38,32 @@ declare module 'styled-components' {
       laptopL: string;
       desktop: string;
     };
+
+    easings: {
+      easeInCubic: string;
+      easeOutCubic: string;
+      easeInOutCubic: string;
+      easeInCirc: string;
+      easeOutCirc: string;
+      easeInOutCirc: string;
+      easeInExpo: string;
+      easeOutExpo: string;
+      easeInOutExpo: string;
+      easeInQuad: string;
+      easeOutQuad: string;
+      easeInOutQuad: string;
+      easeInQuart: string;
+      easeOutQuart: string;
+      easeInOutQuart: string;
+      easeInQuint: string;
+      easeOutQuint: string;
+      easeInOutQuint: string;
+      easeInSine: string;
+      easeOutSine: string;
+      easeInOutSine: string;
+      easeInBack: string;
+      easeOutBack: string;
+      easeInOutBack: string;
+    };
   }
 }

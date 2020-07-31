@@ -1,4 +1,5 @@
 import breakpoints from '../breakpoints';
+import easings from '../easings';
 
 export default {
   title: 'dark',
@@ -29,4 +30,5 @@ export default {
   },
 
   breakpoints,
+  easings,
 };

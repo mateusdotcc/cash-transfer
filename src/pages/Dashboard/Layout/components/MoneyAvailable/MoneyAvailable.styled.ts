@@ -29,4 +29,8 @@ export const Container = styled.div`
       color: ${props => props.theme.colors.onTertiary};
     }
   }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding-top: 16rem;
+  }
 `;

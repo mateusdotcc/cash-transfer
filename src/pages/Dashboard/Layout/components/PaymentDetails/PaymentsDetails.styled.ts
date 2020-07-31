@@ -21,6 +21,10 @@ export const Container = styled.div`
   @media ${props => props.theme.breakpoints.laptop} {
     margin-bottom: 8.6rem;
   }
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    min-width: 100%;
+  }
 `;
 
 export const Header = styled.header`
