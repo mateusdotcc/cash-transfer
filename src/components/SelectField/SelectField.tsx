@@ -123,7 +123,7 @@ const SelectField: React.FC<Props> = ({
         )}
       </Current>
 
-      <List>
+      <List isOpen={open}>
         <Scrollbar alwaysShowTracks continuousScrolling={false}>
           {!isSearch ? (
             <>

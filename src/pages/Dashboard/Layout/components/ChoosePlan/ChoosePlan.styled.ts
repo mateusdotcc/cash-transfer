@@ -196,6 +196,10 @@ export const Title = styled.p`
   @media ${props => props.theme.breakpoints.mobile} {
     margin-bottom: 0;
   }
+
+  @media ${props => props.theme.breakpoints.mobileS} {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Description = styled.p`

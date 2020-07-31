@@ -80,20 +80,28 @@ export const Selected = styled.div`
   }
 `;
 
-export const List = styled.ul`
+export const List = styled.ul<{ isOpen: boolean }>`
   background-color: ${props => props.theme.colors.background};
 
   display: flex;
   flex-direction: column;
 
   position: absolute;
-  top: 58px;
+  top: 110px;
   left: 0;
   z-index: 15;
   padding-bottom: 0.5rem;
   width: inherit;
   max-height: 410px;
   overflow: hidden;
+
+  transition: top 1s ${props => props.theme.easings.easeOutExpo};
+
+  ${props =>
+    props.isOpen &&
+    css`
+      top: 58px;
+    `}
 
   li {
     width: 100%;
