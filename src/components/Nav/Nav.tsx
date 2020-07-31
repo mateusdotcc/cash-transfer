@@ -2,13 +2,17 @@ import React from 'react';
 
 import { FiFileText, FiHelpCircle } from 'react-icons/fi';
 
-import { ButtonIcon } from 'components';
+import ButtonIcon from '../ButtonIcon/ButtonIcon';
 
 import { Container } from './Nav.styled';
 
-const Nav: React.FC = () => {
+interface Props {
+  className?: string;
+}
+
+const Nav: React.FC<Props> = ({ className }) => {
   return (
-    <Container>
+    <Container className={className}>
       <li>
         <ButtonIcon icon={FiFileText} />
       </li>

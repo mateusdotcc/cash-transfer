@@ -5,14 +5,13 @@ import currency from 'currency.js';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
 
-import { Aside, MenuMobile } from 'components';
+import { Aside, MenuMobile, Nav } from 'components';
 
 import {
   MoneyAvailable,
   Conversions,
   ChoosePlan,
   PaymentDetails,
-  Nav,
 } from './components';
 
 import { Container, Header, Center, Content, Main } from './Dashboard.styled';

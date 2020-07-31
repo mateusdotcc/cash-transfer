@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import User from '../Menu/components/User/User';
+import Nav from '../Nav/Nav';
 
 export const UserDetails = styled(User)`
   flex-direction: row;
@@ -31,6 +32,7 @@ export const ContainerMenu = styled.nav`
   position: absolute;
   top: 129px;
   left: 0;
+  z-index: 11;
 
   width: 100%;
   transform: translateX(100%);
@@ -120,5 +122,72 @@ export const Container = styled.div`
 
   @media ${props => props.theme.breakpoints.mobile} {
     display: flex;
+  }
+`;
+
+export const ContainerCtaMenu = styled.nav`
+  position: fixed;
+  right: 18px;
+  bottom: 40px;
+  z-index: 10;
+`;
+
+export const ButtonCta = styled.button`
+  background-color: ${props => props.theme.colors.primary};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  width: 5.4rem;
+  height: 5.4rem;
+  border-radius: 50%;
+
+  box-shadow: 0px 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
+
+  transition: background-color 0.25s;
+
+  svg {
+    color: ${props => props.theme.colors.background};
+    transition: color 0.25s;
+  }
+`;
+
+export const NavCta = styled(Nav)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.is-open-cta {
+    li {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  li {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+
+    transition: opacity 0.6s ${props => props.theme.easings.easeOutExpo},
+      visibility 0.6s ${props => props.theme.easings.easeOutExpo},
+      transform 0.6s ${props => props.theme.easings.easeOutExpo};
+
+    &:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 2rem 0;
+    }
   }
 `;
