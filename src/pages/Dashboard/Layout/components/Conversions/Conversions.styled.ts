@@ -30,7 +30,7 @@ export const From = styled.div`
 export const To = styled(From)``;
 
 export const ButtonConvert = styled.button`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.background};
 
   display: flex;
   align-items: center;
@@ -46,7 +46,7 @@ export const ButtonConvert = styled.button`
   transition: background-color 0.25s;
 
   svg {
-    color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.primary};
     transition: transform 0.25s;
   }
 
@@ -54,6 +54,8 @@ export const ButtonConvert = styled.button`
     background-color: ${props => props.theme.colors.onPrimary};
 
     svg {
+      color: ${props => props.theme.colors.background};
+
       transform: rotate(180deg);
     }
   }
