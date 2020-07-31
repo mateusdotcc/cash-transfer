@@ -53,11 +53,11 @@ export default function dashboard(
       };
 
     case '@dashboard/UPDATE_YOU_SEND':
-      const value = Number(action.value);
+      const { value } = action;
 
       const { fromCountry, toCountry } = state;
 
-      const result = convert(value, {
+      const result = convert(Number(value), {
         from: fromCountry.value,
         to: toCountry.value,
         base: fromCountry.value,
@@ -66,7 +66,7 @@ export default function dashboard(
 
       return {
         ...state,
-        youSend: Number(action.value),
+        youSend: action.value,
         recipientGets: currency(result, {
           symbol: Object.values(symbols)[
             Object.keys(symbols).indexOf(toCountry.value)

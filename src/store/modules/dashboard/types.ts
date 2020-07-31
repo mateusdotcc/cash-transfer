@@ -14,7 +14,7 @@ export interface SetCountry {
 
 export interface YouSend {
   type: string;
-  value: string;
+  value: string | number;
 }
 
 export interface DeliveryDate {

@@ -34,7 +34,7 @@ export function setToCountry(country: Country): SetCountry {
   };
 }
 
-export function updateYouSend(value: string): YouSend {
+export function updateYouSend(value: string | number): YouSend {
   return {
     type: '@dashboard/UPDATE_YOU_SEND',
     value,

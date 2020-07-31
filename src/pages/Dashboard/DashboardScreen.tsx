@@ -33,22 +33,24 @@ const DashboardScreen: React.FC = () => {
     }, 1000);
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(updateYouSend(youSend));
+  }, [dispatch, fromCountry, toCountry, youSend]);
+
   const handleClickCountry = useCallback(
     (selectorName: string, country: Country) => {
-      dispatch(updateYouSend(youSend.toString()));
-
       if (selectorName === 'from') {
         return dispatch(setFromCountry(country));
       }
 
-      return dispatch(setToCountry(country));
+      dispatch(setToCountry(country));
     },
-    [dispatch, youSend],
+    [dispatch],
   );
 
   const handleChangeYouSend = useCallback(
-    (value: string) => {
-      dispatch(updateYouSend(value));
+    (value: string | number) => {
+      dispatch(updateYouSend(Number(value)));
     },
     [dispatch],
   );

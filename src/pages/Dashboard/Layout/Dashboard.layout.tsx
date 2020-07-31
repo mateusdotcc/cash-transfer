@@ -18,7 +18,7 @@ import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 
 interface Props {
   onClickCountry: (selectorName: string, country: Country) => void;
-  onChangeYouSend: (value: string) => void;
+  onChangeYouSend: (value: string | number) => void;
   onUpdateDateCalendar: (date: string, typeDelivery: string) => void;
   onSubmitConfirm: () => void;
 }
