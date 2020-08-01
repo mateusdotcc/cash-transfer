@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import {
   countriesRequest,
-  setFromCountry,
-  setToCountry,
+  updateFromCountry,
+  updateToCountry,
   updateYouSend,
   updateDeliveryDate,
   endAnimations,
@@ -41,10 +41,10 @@ const DashboardScreen: React.FC = () => {
   const handleClickCountry = useCallback(
     (selectorName: string, country: Country) => {
       if (selectorName === 'from') {
-        return dispatch(setFromCountry(country));
+        return dispatch(updateFromCountry(country));
       }
 
-      dispatch(setToCountry(country));
+      dispatch(updateToCountry(country));
     },
     [dispatch],
   );

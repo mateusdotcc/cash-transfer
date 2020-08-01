@@ -1,68 +1,53 @@
-import {
-  Country,
-  CountriesRequest,
-  CountriesSuccess,
-  SetCountry,
-  YouSend,
-  DeliveryDate,
-  ReverseCurrency,
-} from './types';
+import * as ActionTypes from './actionTypes';
 
-export function countriesRequest(): CountriesRequest {
-  return {
-    type: '@dashboard/GET_COUNTRIES_REQUEST',
-  };
-}
+import { DashboardActionTypes, Country } from './types';
 
-export function countriesSuccessRequest(data: Country[]): CountriesSuccess {
-  return {
-    type: '@dashboard/GET_COUNTRIES_SUCCESS',
-    data,
-  };
-}
+export const countriesRequest = (): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_COUNTRIES_REQUEST,
+});
 
-export function setFromCountry(country: Country): SetCountry {
-  return {
-    type: '@dashboard/SELECT_FROM',
-    country,
-  };
-}
+export const countriesSuccessRequest = (
+  data: Country[],
+): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_COUNTRIES_REQUEST_SUCCESS,
+  data,
+});
 
-export function setToCountry(country: Country): SetCountry {
-  return {
-    type: '@dashboard/SELECT_TO',
-    country,
-  };
-}
+export const updateFromCountry = (country: Country): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_UPDATE_FROM_COUNTRY,
+  country,
+});
 
-export function updateYouSend(value: string | number): YouSend {
-  return {
-    type: '@dashboard/UPDATE_YOU_SEND',
-    value,
-  };
-}
+export const updateToCountry = (country: Country): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_UPDATE_TO_COUNTRY,
+  country,
+});
 
-export function updateDeliveryDate(
+export const updateYouSend = (
+  value: string | number,
+): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_UPDATE_YOU_SEND,
+  value,
+});
+
+export const updateDeliveryDate = (
   date: string,
   typeDelivery: string,
-): DeliveryDate {
-  return {
-    type: '@dashboard/UPDATE_DELIVERY_DATE',
-    date,
-    typeDelivery,
-  };
-}
+): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_UPDATE_DELIVERY_DATE,
+  date,
+  typeDelivery,
+});
 
-export function endAnimations(): { type: string } {
-  return {
-    type: '@dashboard/END_ANIMATIONS',
-  };
-}
+export const endAnimations = (): { type: string } => ({
+  type: ActionTypes.DASHBOARD_END_ANIMATIONS,
+});
 
-export function reverseCurrency(from: Country, to: Country): ReverseCurrency {
-  return {
-    type: '@dashboard/REVERSE_CURRENCY',
-    from,
-    to,
-  };
-}
+export const reverseCurrency = (
+  from: Country,
+  to: Country,
+): DashboardActionTypes => ({
+  type: ActionTypes.DASHBOARD_REVERSE_CURRENCY,
+  from,
+  to,
+});

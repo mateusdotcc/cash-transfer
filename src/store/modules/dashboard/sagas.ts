@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 
+import * as ActionTypes from './actionTypes';
 import { Country } from './types';
 
 import { countriesSuccessRequest } from './actions';
@@ -22,5 +23,5 @@ function* getCountries() {
 }
 
 export default all([
-  takeLatest('@dashboard/GET_COUNTRIES_REQUEST', getCountries),
+  takeLatest(ActionTypes.DASHBOARD_COUNTRIES_REQUEST, getCountries),
 ]);

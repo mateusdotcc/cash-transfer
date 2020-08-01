@@ -5,9 +5,10 @@ import moment from 'moment';
 import rates from 'assets/mock/rates.json';
 import symbols from 'assets/mock/symbols.json';
 
-import { DashboardState } from './types';
+import { DashboardState, DashboardActionTypes } from './types';
+import * as ActionTypes from './actionTypes';
 
-const initialValue: DashboardState = {
+const initialState: DashboardState = {
   endAnimations: false,
   countries: [],
   moneyAvailable: 22124,
@@ -29,30 +30,30 @@ const initialValue: DashboardState = {
   },
 };
 
-export default function dashboard(
-  state = initialValue,
-  action: any,
-): DashboardState {
+const dashboard = (
+  state = initialState,
+  action: DashboardActionTypes,
+): DashboardState => {
   switch (action.type) {
-    case '@dashboard/GET_COUNTRIES_SUCCESS':
+    case ActionTypes.DASHBOARD_COUNTRIES_REQUEST_SUCCESS:
       return {
         ...state,
         countries: action.data,
       };
 
-    case '@dashboard/SELECT_FROM':
+    case ActionTypes.DASHBOARD_UPDATE_FROM_COUNTRY:
       return {
         ...state,
         fromCountry: action.country,
       };
 
-    case '@dashboard/SELECT_TO':
+    case ActionTypes.DASHBOARD_UPDATE_TO_COUNTRY:
       return {
         ...state,
         toCountry: action.country,
       };
 
-    case '@dashboard/UPDATE_YOU_SEND':
+    case ActionTypes.DASHBOARD_UPDATE_YOU_SEND:
       const { value } = action;
 
       const { fromCountry, toCountry } = state;
@@ -74,7 +75,7 @@ export default function dashboard(
         }).value,
       };
 
-    case '@dashboard/UPDATE_DELIVERY_DATE':
+    case ActionTypes.DASHBOARD_UPDATE_DELIVERY_DATE:
       const currentDeliveryHour = moment(action.date).format('H');
       const stateDeliveryHour = moment(state.delivery).format('H');
 
@@ -89,13 +90,13 @@ export default function dashboard(
         typeDelivery: action.typeDelivery,
       };
 
-    case '@dashboard/END_ANIMATIONS':
+    case ActionTypes.DASHBOARD_END_ANIMATIONS:
       return {
         ...state,
         endAnimations: true,
       };
 
-    case '@dashboard/REVERSE_CURRENCY':
+    case ActionTypes.DASHBOARD_REVERSE_CURRENCY:
       return {
         ...state,
         fromCountry: action.to,
@@ -105,4 +106,6 @@ export default function dashboard(
     default:
       return state;
   }
-}
+};
+
+export default dashboard;
