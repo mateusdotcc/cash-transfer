@@ -1,7 +1,9 @@
+import { DefaultTheme } from 'styled-components';
+
 import breakpoints from '../breakpoints';
 import easings from '../easings';
 
-export default {
+const theme: DefaultTheme = {
   title: 'dark',
 
   colors: {
@@ -30,3 +32,5 @@ export default {
   breakpoints,
   easings,
 };
+
+export default theme;

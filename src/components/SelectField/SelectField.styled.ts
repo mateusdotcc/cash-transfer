@@ -7,6 +7,7 @@ export const Loader = styled.span`
 `;
 
 export const Current = styled.button<{ isActive: boolean }>`
+  color: ${props => props.theme.colors.quinary};
   font-family: ${props => props.theme.typography.primarySemibold};
   background-color: ${props => props.theme.colors.quaternary};
 
@@ -128,6 +129,7 @@ export const Flag = styled.span<{ source: string }>`
 `;
 
 export const Button = styled.button`
+  color: ${props => props.theme.colors.quinary};
   background-color: ${props => props.theme.colors.quaternary};
 
   display: flex;

@@ -18,8 +18,9 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter-Regular', 'Helvetica', 'Arial', sans-serif;
+    background-color: ${props => props.theme.colors.background};
 
+    font-family: 'Inter-Regular', 'Helvetica', 'Arial', sans-serif;
     font-size: 1.6rem;
     -webkit-tap-highlight-color: transparent;
   }

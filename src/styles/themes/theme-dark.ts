@@ -1,23 +1,25 @@
+import { DefaultTheme } from 'styled-components';
+
 import breakpoints from '../breakpoints';
 import easings from '../easings';
 
-export default {
+const theme: DefaultTheme = {
   title: 'dark',
 
   colors: {
     primary: '#f364a2',
     onPrimary: '#e8368f',
-    secondary: '#1f2933',
-    onSecondary: '#52606d',
-    onTertiary: '#616e7c',
-    quaternary: '#f5f7fA',
-    onQuaternary: '#3e4c59',
-    quinary: '#323f4b',
+    secondary: '#ffffff',
+    onSecondary: '#ffffff',
+    onTertiary: '#ffffff',
+    quaternary: '#333333',
+    onQuaternary: '#ffffff',
+    quinary: '#ffffff',
     senary: '#e4e7eb',
-    onSenary: '#fff6f9',
+    onSenary: '#333333',
     seventh: '#ff8cba',
     onSeventh: '#da127d',
-    background: '#ffffff',
+    background: '#121212',
   },
 
   typography: {
@@ -30,3 +32,5 @@ export default {
   breakpoints,
   easings,
 };
+
+export default theme;

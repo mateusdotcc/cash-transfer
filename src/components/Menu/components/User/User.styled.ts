@@ -12,6 +12,7 @@ export const Avatar = styled.div`
 `;
 
 export const Username = styled.p`
+  color: ${props => props.theme.colors.secondary};
   font-family: ${props => props.theme.typography.primarySemibold};
 
   margin-bottom: 0;

@@ -126,6 +126,10 @@ export const NavCta = styled(Nav)`
       transition-delay: 0.2s;
     }
 
+    &:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
     &:not(:last-child) {
       margin: 0 0 2rem 0;
     }
