@@ -1,3 +1,20 @@
 {
-  "button": {}
+  "button": {
+    "confirm": "Confirmar"
+  },
+  "youSend": "Você envia",
+  "recipientGets": "O destinatário recebe",
+  "delivery": "Entrega",
+  "conversionRate": "Taxa de conversão",
+  "writeAValue": "0.00",
+  "selects": {
+    "date": {
+      "placeholder": "Escolha uma data:"
+    },
+    "country": {
+      "placeholder": "Procure um País",
+      "from": "De:",
+      "to": "Para:"
+    }
+  }
 }

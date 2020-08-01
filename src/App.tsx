@@ -3,11 +3,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 import { Provider } from 'react-redux';
-
 import usePersistedState from './hooks/usePersistedState';
 
 import Routes from './routes';
-
 import store from './store';
 
 import light from './styles/themes/theme-light';

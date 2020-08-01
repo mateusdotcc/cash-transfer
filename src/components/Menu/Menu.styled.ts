@@ -90,7 +90,7 @@ export const ButtonItem = styled(ButtonMenu).attrs<
 >({})<{
   isActive?: boolean;
 }>`
-  color: ${props => props.theme.colors.tertiary};
+  color: ${props => props.theme.colors.secondary};
 
   position: relative;
   padding: 2.2rem 0 2.2rem 6.3rem;

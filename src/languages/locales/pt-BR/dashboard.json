@@ -1,5 +1,13 @@
 {
   "header": {
     "title": "Painel"
-  }
+  },
+  "sendMoney": "Enviar Dinheiro",
+  "available": "disponível",
+  "chooseAPlan": "Escolhe um plano:",
+  "paymentDetails": "Detalhes do pagamento",
+  "express": "Expresso",
+  "standard": "Padrão",
+  "getToday": "Receba até às 20h",
+  "onlyOnWorking": "Somente nos dias úteis das 11h às 20h"
 }

@@ -12,7 +12,7 @@ export const Avatar = styled.div`
 `;
 
 export const Username = styled.p`
-  font-family: 'Inter-Semibold';
+  font-family: ${props => props.theme.typography.primarySemibold};
 
   margin-bottom: 0;
   font-size: 2.4rem;

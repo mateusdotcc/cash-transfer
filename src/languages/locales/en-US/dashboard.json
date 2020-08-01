@@ -9,6 +9,5 @@
   "express": "Express",
   "standard": "Standard",
   "getToday": "Get today till 8pm",
-  "onlyOnWorking": "Only on working days from 11am to 8pm",
-  "to": "to"
+  "onlyOnWorking": "Only on working days from 11am to 8pm"
 }

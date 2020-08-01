@@ -27,11 +27,10 @@ const DashboardScreen: React.FC = () => {
   } = useSelector((state: { dashboard: DashboardState }) => state.dashboard);
 
   useEffect(() => {
-    dispatch(countriesRequest());
-
     setTimeout(() => {
+      dispatch(countriesRequest());
       dispatch(endAnimations());
-    }, 1000);
+    }, 1500);
   }, [dispatch]);
 
   useEffect(() => {

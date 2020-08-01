@@ -1,9 +1,9 @@
 {
-  "services": "Services",
-  "transactions": "Transactions",
-  "sendMoney": "Send Money",
-  "cards": "Cards",
-  "history": "History",
-  "settings": "Settings",
-  "logOut": "Log Out"
+  "services": "Serviços",
+  "transactions": "Transações",
+  "sendMoney": "Enviar Dinheiro",
+  "cards": "Cartões",
+  "history": "Histórico",
+  "settings": "Configurações",
+  "logOut": "Sair"
 }

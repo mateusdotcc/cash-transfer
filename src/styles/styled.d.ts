@@ -9,12 +9,10 @@ declare module 'styled-components' {
       onPrimary: string;
       secondary: string;
       onSecondary: string;
-      tertiary: string;
       onTertiary: string;
       quaternary: string;
       onQuaternary: string;
       quinary: string;
-      onQuinary: string;
       senary: string;
       onSenary: string;
       seventh: string;

@@ -7,9 +7,9 @@ export const Container = styled.aside`
   min-width: 320px;
   width: 100%;
 
-  @media ${props => props.theme.breakpoints.laptop} {
+  @media ${props => props.theme.breakpoints.laptopL} {
     margin-right: 0.5rem;
-    max-width: 220px;
+    min-width: 250px;
   }
 
   @media ${props => props.theme.breakpoints.mobile} {

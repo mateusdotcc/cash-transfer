@@ -32,7 +32,7 @@ export const Header = styled.header`
   margin-bottom: 2.7rem;
 
   h2 {
-    color: ${props => props.theme.colors.onQuinary};
+    color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primaryMedium};
 
     margin: 0;
@@ -213,7 +213,7 @@ export const Description = styled.p`
 `;
 
 export const Price = styled.span`
-  color: ${props => props.theme.colors.onQuinary};
+  color: ${props => props.theme.colors.secondary};
   font-family: ${props => props.theme.typography.primaryMedium};
 
   font-size: 1.8rem;
