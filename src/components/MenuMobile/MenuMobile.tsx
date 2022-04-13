@@ -5,11 +5,8 @@ import React, {
   useState,
   HTMLAttributes,
 } from 'react';
-
 import { FiAlignRight, FiX, FiList } from 'react-icons/fi';
-
 import Menu from '../Menu/Menu';
-
 import {
   Container,
   UserDetails,

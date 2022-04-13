@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div<{ endAnimations: boolean }>`
   display: flex;
   flex-direction: row;
-
   position: ${props => (props.endAnimations ? 'relative' : 'fixed')};
 
   @media ${props => props.theme.breakpoints.mobile} {
@@ -16,7 +15,6 @@ export const Header = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 6.1rem;
   max-width: 1055px;
   width: 100%;
@@ -57,7 +55,6 @@ export const Content = styled.div`
 export const Center = styled.section`
   display: flex;
   flex-direction: column;
-
   padding: 7.9rem 2.5rem 0 0;
   width: 100%;
 
@@ -67,7 +64,6 @@ export const Center = styled.section`
   .container-payment-details {
     visibility: hidden;
     transform: translateY(60%);
-
     transition: visibility 1s ${props => props.theme.easings.easeOutExpo},
       transform 1s ${props => props.theme.easings.easeOutExpo};
   }

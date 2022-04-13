@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 import moment from 'moment';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import {
@@ -12,7 +11,6 @@ import {
   endAnimations,
   reverseCurrency,
 } from 'store/modules/dashboard/actions';
-
 import Dashboard from './Layout/Dashboard.layout';
 
 const DashboardScreen: React.FC = () => {

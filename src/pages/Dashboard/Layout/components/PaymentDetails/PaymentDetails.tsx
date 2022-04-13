@@ -2,17 +2,14 @@ import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
 import currency from 'utils/currency';
-
 import { DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
-
 import {
   FiArrowRight,
   FiCalendar,
   FiDollarSign,
   FiShuffle,
 } from 'react-icons/fi';
-
 import {
   Container,
   Header,

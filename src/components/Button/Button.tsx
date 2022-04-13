@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes } from 'react';
-
 import { Container } from './Button.styled';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

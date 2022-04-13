@@ -1,14 +1,10 @@
 import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import currency from 'utils/currency';
-
 import { useSelector } from 'react-redux';
 import { Country, DashboardState } from 'store/modules/dashboard/types';
-
 import { FiRefreshCcw } from 'react-icons/fi';
-
 import { SelectField } from 'components';
-
 import {
   Container,
   From,

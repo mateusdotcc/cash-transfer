@@ -7,7 +7,6 @@ export const Container = styled.div`
   h2 {
     color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primaryMedium};
-
     margin-bottom: 0.7rem;
     font-size: 3rem;
   }
@@ -20,7 +19,6 @@ export const Container = styled.div`
     span {
       color: ${props => props.theme.colors.primary};
       font-family: ${props => props.theme.typography.primaryBold};
-
       margin-right: 1.2rem;
       font-size: 3rem;
     }

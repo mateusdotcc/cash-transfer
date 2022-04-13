@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import {
   FiGrid,
   FiRepeat,
@@ -10,9 +9,7 @@ import {
   FiSettings,
   FiLogOut,
 } from 'react-icons/fi';
-
 import User from './components/User/User';
-
 import {
   Container,
   ButtonItem,

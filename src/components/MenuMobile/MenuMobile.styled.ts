@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 import User from '../Menu/components/User/User';
 import Nav from '../Nav/Nav';
 
@@ -17,7 +16,6 @@ export const ButtonHamb = styled.button`
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-
   width: 5rem;
 
   svg {
@@ -28,16 +26,13 @@ export const ButtonHamb = styled.button`
 
 export const ContainerMenu = styled.nav`
   background-color: ${props => props.theme.colors.background};
-
   position: absolute;
   top: 129px;
   left: 0;
   z-index: 11;
-
   width: 100%;
   transform: translateX(100%);
   visibility: hidden;
-
   transition: top 0.35s,
     transform 0.65s ${props => props.theme.easings.easeOutExpo},
     visibility 0.65s ${props => props.theme.easings.easeOutExpo};
@@ -47,7 +42,6 @@ export const ContainerMenu = styled.nav`
     height: calc(100vh - 12.9rem);
     overflow-x: hidden;
     overflow-y: scroll;
-
     transition: height 0.35s;
 
     > div {
@@ -70,23 +64,18 @@ export const ContainerCtaMenu = styled.nav`
 
 export const ButtonCta = styled.button`
   background-color: ${props => props.theme.colors.primary};
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: relative;
   z-index: 2;
   margin-top: 2rem;
   width: 5.4rem;
   height: 5.4rem;
   border-radius: 50%;
-
-  box-shadow: 0px 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
-
+  box-shadow: 0 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
   visibility: hidden;
   transform: translateY(60%);
-
   transition: visibility 1s ${props => props.theme.easings.easeOutExpo},
     transform 1s ${props => props.theme.easings.easeOutExpo};
 
@@ -113,7 +102,6 @@ export const NavCta = styled(Nav)`
     opacity: 0;
     visibility: hidden;
     transform: translateY(100%);
-
     transition: opacity 0.6s ${props => props.theme.easings.easeOutExpo},
       visibility 0.6s ${props => props.theme.easings.easeOutExpo},
       transform 0.6s ${props => props.theme.easings.easeOutExpo};
@@ -138,14 +126,11 @@ export const NavCta = styled(Nav)`
 
 export const Container = styled.div`
   background-color: ${props => props.theme.colors.background};
-
   display: none;
-
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
-
   padding: 5.7rem 2rem 1rem 2.1rem;
   width: 100%;
 
@@ -153,14 +138,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     visibility: hidden;
     transform: translateY(60%);
-
     transition: visibility 1s ${props => props.theme.easings.easeOutExpo},
       transform 1s ${props => props.theme.easings.easeOutExpo}, padding 0.35s,
       box-shadow 0.35s;
-
     width: 100%;
   }
 
@@ -179,7 +161,7 @@ export const Container = styled.div`
 
   &.isScroll {
     padding-top: 1rem;
-    box-shadow: 0px 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
+    box-shadow: 0 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
 
     ${ContainerMenu} {
       top: 63px;

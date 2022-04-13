@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-
   position: relative;
   z-index: 1;
   margin-bottom: 7.4rem;
@@ -35,14 +34,12 @@ export const ButtonConvert = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: relative;
   top: -38px;
   margin: 0 2.1rem;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-
   transition: background-color 0.25s;
 
   svg {
@@ -71,7 +68,6 @@ export const ButtonConvert = styled.button`
   @media ${props => props.theme.breakpoints.tablet} {
     top: 0;
     margin: 2.8rem 0;
-
     min-width: 50px;
     min-height: 50px;
     width: 5rem;
@@ -81,7 +77,6 @@ export const ButtonConvert = styled.button`
 
 export const SelectResult = styled.div`
   background-color: ${props => props.theme.colors.quaternary};
-
   padding: 2.7rem 2.6rem;
   height: 12.8rem;
   border-radius: 0.8rem;
@@ -100,11 +95,9 @@ export const SelectResult = styled.div`
 export const Value = styled.span`
   color: ${props => props.theme.colors.quinary};
   font-family: ${props => props.theme.typography.primarySemibold};
-
   display: flex;
   flex-direction: row;
   align-items: center;
-
   margin-top: 0.8rem;
   font-size: 3rem;
 
@@ -112,7 +105,6 @@ export const Value = styled.span`
     max-width: 168px;
     background-color: transparent;
     border: 0;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

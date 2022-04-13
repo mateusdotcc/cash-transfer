@@ -1,13 +1,10 @@
 import styled from 'styled-components';
-
 import { Button } from 'components';
 
 export const Container = styled.div`
   border: 0.2rem solid ${props => props.theme.colors.senary};
-
   display: flex;
   flex-direction: column;
-
   padding: 4rem 0;
   max-width: 100%;
   min-width: 381px;
@@ -31,7 +28,6 @@ export const Header = styled.header`
   h2 {
     color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primarySemibold};
-
     padding-left: 4rem;
     font-size: 2.4rem;
     margin-bottom: 5rem;
@@ -42,7 +38,6 @@ export const Conversion = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   padding: 0 2rem;
 
   > div {
@@ -53,7 +48,6 @@ export const Conversion = styled.div`
     > span:first-of-type {
       color: ${props => props.theme.colors.secondary};
       font-family: ${props => props.theme.typography.primarySemibold};
-
       margin-bottom: 0.9rem;
       font-size: 1.8rem;
     }
@@ -67,7 +61,6 @@ export const ContainerFlag = styled.div`
 
   > span {
     color: ${props => props.theme.colors.onSecondary};
-
     display: inline-block;
     font-size: 1.4rem;
   }
@@ -75,13 +68,11 @@ export const ContainerFlag = styled.div`
 
 export const Flag = styled.span<{ source: string }>`
   background-image: url(${props => props.source});
-
   display: inline-block;
   margin-right: 0.8rem;
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-
   background-size: 2rem 2rem;
   background-position: center center;
   background-repeat: no-repeat;
@@ -91,13 +82,11 @@ export const Equal = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 0 5.7rem;
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 50%;
-
-  box-shadow: 0px 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
+  box-shadow: 0 0.2rem 0.7rem rgba(123, 135, 148, 0.28);
 
   svg {
     color: ${props => props.theme.colors.secondary};
@@ -110,9 +99,7 @@ export const Equal = styled.div`
 
 export const Divider = styled.span`
   background-color: ${props => props.theme.colors.senary};
-
   margin: 6.4rem 0 4.9rem;
-
   display: block;
   width: 100%;
   height: 0.2rem;
@@ -121,7 +108,6 @@ export const Divider = styled.span`
 export const ContainerTotal = styled.ul`
   display: flex;
   flex-direction: column;
-
   position: relative;
   padding: 0 4rem;
   height: 100%;
@@ -139,7 +125,6 @@ export const ContainerTotal = styled.ul`
 
   span {
     color: ${props => props.theme.colors.onQuaternary};
-
     display: flex;
     align-items: center;
     font-size: 1.7rem;
@@ -149,7 +134,6 @@ export const ContainerTotal = styled.ul`
   strong {
     color: ${props => props.theme.colors.secondary};
     font-family: ${props => props.theme.typography.primarySemibold};
-
     font-size: 1.8rem;
     white-space: nowrap;
   }

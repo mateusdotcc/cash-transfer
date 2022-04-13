@@ -1,19 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import currency from 'currency.js';
-
 import { Country, DashboardState } from 'store/modules/dashboard/types';
 import { useSelector } from 'react-redux';
-
 import { Aside, MenuMobile, Nav } from 'components';
-
 import {
   MoneyAvailable,
   Conversions,
   ChoosePlan,
   PaymentDetails,
 } from './components';
-
 import { Container, Header, Center, Content, Main } from './Dashboard.styled';
 
 interface Props {
@@ -32,7 +28,6 @@ const DashboardLayout: React.FC<Props> = ({
   onSubmitConfirm,
 }) => {
   const { t } = useTranslation();
-
   const containerCenter = useRef<HTMLDivElement>(null);
 
   const { moneyAvailable, endAnimations } = useSelector(

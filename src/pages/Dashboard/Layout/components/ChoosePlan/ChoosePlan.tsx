@@ -2,14 +2,10 @@ import React, { HTMLAttributes, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
-
 import { useSelector } from 'react-redux';
 import { DashboardState } from 'store/modules/dashboard/types';
-
 import { DatePicker } from 'antd';
-
 import { FiCalendar, FiCheck } from 'react-icons/fi';
-
 import {
   Container,
   ContainerItem,
@@ -29,9 +25,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const ChoosePlan: React.FC<Props> = ({ onUpdateDateCalendar, ...rest }) => {
   const { t } = useTranslation();
-
   const { colors } = useContext(ThemeContext);
-
   const formatExpress = '[Get] D MMMM YYYY [till 12pm]';
   const formatStandard = '[Get] D MMMM YYYY [till 6pm]';
 

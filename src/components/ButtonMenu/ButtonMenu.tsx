@@ -1,6 +1,5 @@
 import React, { ButtonHTMLAttributes, ComponentType } from 'react';
 import { IconBaseProps } from 'react-icons';
-
 import { Container } from './ButtonMenu.styled';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,10 +1,8 @@
 import { convert } from 'cashify';
 import currency from 'currency.js';
 import moment from 'moment';
-
 import rates from 'assets/mock/rates.json';
 import symbols from 'assets/mock/symbols.json';
-
 import { DashboardState, DashboardActionTypes } from './types';
 import * as ActionTypes from './actionTypes';
 

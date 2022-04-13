@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
   font-family: ${props => props.theme.typography.primarySemibold};
-
   display: flex;
 
   svg {

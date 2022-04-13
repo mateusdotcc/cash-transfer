@@ -96,11 +96,6 @@ const SelectField: React.FC<Props> = ({
         onClick={handleClickSelect}
         disabled={data.length === 0}
       >
-        {data.length === 0 ? (
-          <Loader>
-            <CircleSpinner size={20} color={colors.senary} />
-          </Loader>
-        ) : (
           <>
             {open ? (
               <Search>
@@ -120,7 +115,6 @@ const SelectField: React.FC<Props> = ({
               </Selected>
             )}
           </>
-        )}
       </Current>
 
       <List isOpen={open}>

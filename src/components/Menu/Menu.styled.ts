@@ -1,6 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-
 import ButtonMenu from '../ButtonMenu/ButtonMenu';
 
 type Button = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -9,14 +8,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
 
   .container-user-details,
   li {
     visibility: hidden;
     transform: translateY(60%);
-
     transition: visibility 1s ${props => props.theme.easings.easeOutExpo},
       transform 1s ${props => props.theme.easings.easeOutExpo};
   }
@@ -91,27 +88,20 @@ export const ButtonItem = styled(ButtonMenu).attrs<
   isActive?: boolean;
 }>`
   color: ${props => props.theme.colors.secondary};
-
   position: relative;
   padding: 2.2rem 0 2.2rem 6.3rem;
-
   font-size: 1.6rem;
   width: inherit;
-
   transition: color 0.25s;
 
   &:after {
     background-color: ${props => props.theme.colors.onPrimary};
-
     content: '';
-
     position: absolute;
     top: 0;
     left: 0;
-
     width: 0;
     height: 100%;
-
     transition: width 0.25s;
   }
 

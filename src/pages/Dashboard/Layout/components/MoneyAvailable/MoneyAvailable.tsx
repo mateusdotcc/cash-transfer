@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Container } from './MoneyAvailable.styled';
 
 const MoneyAvailable: React.FC = ({ children }) => {
