@@ -8,8 +8,7 @@
 <p align="center">Challenge</p>
 
 <p align="center">
-  <a href="#technology">Technology</a> •
-  <a href="https://money-transfer.vercel.app/">Link to Preview</a>
+  <a href="#technology">Technology</a>
 </p>
 
 ### Getting Started
